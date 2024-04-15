@@ -9,22 +9,25 @@ import java.nio.file.Path;
 import java.util.Map;
 
 /**
- * EN: Utility class for writing statistics data to XML files.
- * This class provides a convenient way to generate XML files with statistics data.
- * It contains a method for writing statistics data in XML format based on the provided map of statistics.
  * Author: Viacheslav Korbut
  * Date: 04.04.2024
  */
+
+/**
+ * Utility class for writing statistics data to XML files.
+ * This class provides a convenient way to generate XML files with statistics data.
+ * It contains a method for writing statistics data in XML format based on the provided map of statistics.
+ */
 public class StatisticsXmlWriter {
     /**
-     * EN: Private constructor to prevent instantiation of the XmlWriter class.
+     * Private constructor to prevent instantiation of the XmlWriter class.
      */
     private StatisticsXmlWriter() {
 
     }
 
     /**
-     * EN: Writes statistics data to an XML file.
+     * Writes statistics data to an XML file.
      *
      * @param statisticMap The map containing statistics data.
      * @param fileName     The name of the XML file.
@@ -50,7 +53,7 @@ public class StatisticsXmlWriter {
     }
 
     /**
-     * EN: Creates a buffered writer for the specified XML file.
+     * Creates a buffered writer for the specified XML file.
      *
      * @param fileName The name of the XML file.
      * @return A BufferedWriter object for writing to the XML file.

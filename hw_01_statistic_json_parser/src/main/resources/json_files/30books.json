@@ -1,0 +1,263 @@
+[
+  {
+    "title": "The Chronicles of Narnia",
+    "author": {
+      "first_name": "C.S.",
+      "last_name": "Lewis"
+    },
+    "year_published": 1950,
+    "genre": ["FANTASY", "CHILDREN"]
+  },
+  {
+    "title": "The Book Thief",
+    "author": {
+      "first_name": "Markus",
+      "last_name": "Zusak"
+    },
+    "year_published": 2005,
+    "genre": ["HISTORICAL_FICTION"]
+  },
+  {
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "author": {
+      "first_name": "Douglas",
+      "last_name": "Adams"
+    },
+    "year_published": 1979,
+    "genre": ["SCIENCE_FICTION", "SATIRE"]
+  },
+  {
+    "title": "A Game of Thrones",
+    "author": {
+      "first_name": "George R.R.",
+      "last_name": "Martin"
+    },
+    "year_published": 1996,
+    "genre": ["FANTASY", "EPIC"]
+  },
+  {
+    "title": "The Girl with the Dragon Tattoo",
+    "author": {
+      "first_name": "Stieg",
+      "last_name": "Larsson"
+    },
+    "year_published": 2005,
+    "genre": ["THRILLER"]
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "author": {
+      "first_name": "J.D.",
+      "last_name": "Salinger"
+    },
+    "year_published": 1951,
+    "genre": ["PSYCHOLOGICAL"]
+  },
+  {
+    "title": "The Curious Incident of the Dog in the Night-Time",
+    "author": {
+      "first_name": "Mark",
+      "last_name": "Haddon"
+    },
+    "year_published": 2003,
+    "genre": ["MYSTERY"]
+  },
+  {
+    "title": "The Road",
+    "author": {
+      "first_name": "Cormac",
+      "last_name": "McCarthy"
+    },
+    "year_published": 2006,
+    "genre": ["POST-APOCALYPTIC"]
+  },
+  {
+    "title": "The Name of the Wind",
+    "author": {
+      "first_name": "Patrick",
+      "last_name": "Rothfuss"
+    },
+    "year_published": 2007,
+    "genre": ["FANTASY"]
+  },
+  {
+    "title": "A Clockwork Orange",
+    "author": {
+      "first_name": "Anthony",
+      "last_name": "Burgess"
+    },
+    "year_published": 1962,
+    "genre": ["DYSTOPIAN", "PSYCHOLOGICAL"]
+  },
+  {
+    "title": "The Picture of Dorian Gray",
+    "author": {
+      "first_name": "Oscar",
+      "last_name": "Wilde"
+    },
+    "year_published": 1890,
+    "genre": ["GOTHIC", "PHILOSOPHICAL"]
+  },
+  {
+    "title": "The Alchemist",
+    "author": {
+      "first_name": "Paulo",
+      "last_name": "Coelho"
+    },
+    "year_published": 1988,
+    "genre": ["PHILOSOPHICAL"]
+  },
+  {
+    "title": "The Road Less Traveled",
+    "author": {
+      "first_name": "M. Scott",
+      "last_name": "Peck"
+    },
+    "year_published": 1978,
+    "genre": ["SELF_HELP"]
+  },
+  {
+    "title": "The Stand",
+    "author": {
+      "first_name": "Stephen",
+      "last_name": "King"
+    },
+    "year_published": 1978,
+    "genre": ["POST-APOCALYPTIC", "HORROR"]
+  },
+  {
+    "title": "The Pillars of the Earth",
+    "author": {
+      "first_name": "Ken",
+      "last_name": "Follett"
+    },
+    "year_published": 1989,
+    "genre": ["HISTORICAL_FICTION"]
+  },
+  {
+    "title": "Slaughterhouse-Five",
+    "author": {
+      "first_name": "Kurt",
+      "last_name": "Vonnegut"
+    },
+    "year_published": 1969,
+    "genre": ["SCIENCE_FICTION", "WAR"]
+  },
+  {
+    "title": "The Help",
+    "author": {
+      "first_name": "Kathryn",
+      "last_name": "Stockett"
+    },
+    "year_published": 2009,
+    "genre": ["HISTORICAL_FICTION"]
+  },
+  {
+    "title": "The Giver",
+    "author": {
+      "first_name": "Lois",
+      "last_name": "Lowry"
+    },
+    "year_published": 1993,
+    "genre": ["DYSTOPIAN", "CHILDREN"]
+  },
+  {
+    "title": "The Secret Life of Bees",
+    "author": {
+      "first_name": "Sue",
+      "last_name": "Monk Kidd"
+    },
+    "year_published": 2001,
+    "genre": ["HISTORICAL_FICTION"]
+  },
+  {
+    "title": "The Martian",
+    "author": {
+      "first_name": "Andy",
+      "last_name": "Weir"
+    },
+    "year_published": 2011,
+    "genre": ["SCIENCE_FICTION"]
+  },
+  {
+    "title": "The Color Purple",
+    "author": {
+      "first_name": "Alice",
+      "last_name": "Walker"
+    },
+    "year_published": 1982,
+    "genre": ["HISTORICAL_FICTION"]
+  },
+  {
+    "title": "The Kite Runner",
+    "author": {
+      "first_name": "Khaled",
+      "last_name": "Hosseini"
+    },
+    "year_published": 2003,
+    "genre": ["HISTORICAL_FICTION"]
+  },
+  {
+    "title": "The Goldfinch",
+    "author": {
+      "first_name": "Donna",
+      "last_name": "Tartt"
+    },
+    "year_published": 2013,
+    "genre": ["DRAMA"]
+  },
+  {
+    "title": "The Time Traveler's Wife",
+    "author": {
+      "first_name": "Audrey",
+      "last_name": "Niffenegger"
+    },
+    "year_published": 2003,
+    "genre": ["ROMANCE", "SCIENCE_FICTION"]
+  },
+  {
+    "title": "The Night Circus",
+    "author": {
+      "first_name": "Erin",
+      "last_name": "Morgenstern"
+    },
+    "year_published": 2011,
+    "genre": ["FANTASY"]
+  },
+  {
+    "title": "The Martian Chronicles",
+    "author": {
+      "first_name": "Ray",
+      "last_name": "Bradbury"
+    },
+    "year_published": 1950,
+    "genre": ["SCIENCE_FICTION"]
+  },
+  {
+    "title": "The Remains of the Day",
+    "author": {
+      "first_name": "Kazuo",
+      "last_name": "Ishiguro"
+    },
+    "year_published": 1989,
+    "genre": ["DRAMA"]
+  },
+  {
+    "title": "The Guernsey Literary and Potato Peel Pie Society",
+    "author": {
+      "first_name": "Mary Ann",
+      "last_name": "Shaffer"
+    },
+    "year_published": 2008,
+    "genre": ["HISTORICAL_FICTION"]
+  },
+  {
+    "title": "The Immortal Life of Henrietta Lacks",
+    "author": {
+      "first_name": "Rebecca",
+      "last_name": "Skloot"
+    },
+    "year_published": 2010,
+    "genre": ["BIOGRAPHY"]
+  }
+]

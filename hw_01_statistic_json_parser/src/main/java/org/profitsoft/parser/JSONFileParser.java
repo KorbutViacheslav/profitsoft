@@ -14,10 +14,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Utility class for parsing JSON files containing information about books.
- * Provides method for asynchronously parsing JSON files in a specified folder.
  * Author: Viacheslav Korbut
  * Date: 04.04.2024
+ */
+
+/**
+ * Utility class for parsing JSON files containing information about books.
+ * Provides method for asynchronously parsing JSON files in a specified folder.
  */
 public class JSONFileParser {
     /**

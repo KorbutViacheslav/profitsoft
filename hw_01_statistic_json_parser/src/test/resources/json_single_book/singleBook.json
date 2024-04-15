@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Pride and Prejudice",
+    "author": {
+      "first_name": "Jane",
+      "last_name": "Austen"
+    },
+    "year_published": 1813,
+    "genre": ["ROMANCE", "SATIRE"]
+  }
+]

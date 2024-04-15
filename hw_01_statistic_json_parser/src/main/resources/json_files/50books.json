@@ -1,0 +1,602 @@
+[
+  {
+    "title": "1984",
+    "author": {
+      "first_name": "George",
+      "last_name": "Orwell"
+    },
+    "year_published": 1949,
+    "genre": [
+      "DYSTOPIAN",
+      "POLITICAL_FICTION"
+    ]
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": {
+      "first_name": "Jane",
+      "last_name": "Austen"
+    },
+    "year_published": 1813,
+    "genre": [
+      "ROMANCE",
+      "SATIRE"
+    ]
+  },
+  {
+    "title": "Romeo and Juliet",
+    "author": {
+      "first_name": "William",
+      "last_name": "Shakespeare"
+    },
+    "year_published": 1597,
+    "genre": [
+      "ROMANCE",
+      "TRAGEDY"
+    ]
+  },
+  {
+    "title": "The Lord of the Rings",
+    "author": {
+      "first_name": "J.R.R.",
+      "last_name": "Tolkien"
+    },
+    "year_published": 1954,
+    "genre": [
+      "FANTASY",
+      "EPIC"
+    ]
+  },
+  {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "author": {
+      "first_name": "J.K.",
+      "last_name": "Rowling"
+    },
+    "year_published": 1997,
+    "genre": [
+      "FANTASY",
+      "CHILDREN"
+    ]
+  },
+  {
+    "title": "The Catcher in the Rye",
+    "author": {
+      "first_name": "J.D.",
+      "last_name": "Salinger"
+    },
+    "year_published": 1951,
+    "genre": [
+      "PSYCHOLOGICAL"
+    ]
+  },
+  {
+    "title": "The Shining",
+    "author": {
+      "first_name": "Stephen",
+      "last_name": "King"
+    },
+    "year_published": 1977,
+    "genre": [
+      "HORROR",
+      "PSYCHOLOGICAL"
+    ]
+  },
+  {
+    "title": "Gone Girl",
+    "author": {
+      "first_name": "Gillian",
+      "last_name": "Flynn"
+    },
+    "year_published": 2012,
+    "genre": [
+      "THRILLER",
+      "PSYCHOLOGICAL"
+    ]
+  },
+  {
+    "title": "Charlotte's Web",
+    "author": {
+      "first_name": "E.B.",
+      "last_name": "White"
+    },
+    "year_published": 1952,
+    "genre": [
+      "CHILDREN"
+    ]
+  },
+  {
+    "title": "Brave New World",
+    "author": {
+      "first_name": "Aldous",
+      "last_name": "Huxley"
+    },
+    "year_published": 1932,
+    "genre": [
+      "DYSTOPIAN",
+      "SCIENCE_FICTION"
+    ]
+  },
+  {
+    "title": "Animal Farm",
+    "author": {
+      "first_name": "George",
+      "last_name": "Orwell"
+    },
+    "year_published": 1945,
+    "genre": [
+      "ALLEGORICAL",
+      "POLITICAL_FICTION"
+    ]
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": {
+      "first_name": "Harper",
+      "last_name": "Lee"
+    },
+    "year_published": 1960,
+    "genre": [
+      "COMING-OF-AGE",
+      "SOUTHERN_GOTHIC"
+    ]
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": {
+      "first_name": "F. Scott",
+      "last_name": "Fitzgerald"
+    },
+    "year_published": 1925,
+    "genre": [
+      "TRAGEDY"
+    ]
+  },
+  {
+    "title": "Frankenstein",
+    "author": {
+      "first_name": "Mary",
+      "last_name": "Shelley"
+    },
+    "year_published": 1818,
+    "genre": [
+      "GOTHIC",
+      "SCIENCE_FICTION"
+    ]
+  },
+  {
+    "title": "The Picture of Dorian Gray",
+    "author": {
+      "first_name": "Oscar",
+      "last_name": "Wilde"
+    },
+    "year_published": 1890,
+    "genre": [
+      "GOTHIC",
+      "PHILOSOPHICAL"
+    ]
+  },
+  {
+    "title": "The Hobbit",
+    "author": {
+      "first_name": "J.R.R.",
+      "last_name": "Tolkien"
+    },
+    "year_published": 1937,
+    "genre": [
+      "FANTASY",
+      "CHILDREN"
+    ]
+  },
+  {
+    "title": "The Hunger Games",
+    "author": {
+      "first_name": "Suzanne",
+      "last_name": "Collins"
+    },
+    "year_published": 2008,
+    "genre": [
+      "DYSTOPIAN",
+      "SCIENCE_FICTION"
+    ]
+  },
+  {
+    "title": "The Da Vinci Code",
+    "author": {
+      "first_name": "Dan",
+      "last_name": "Brown"
+    },
+    "year_published": 2003,
+    "genre": [
+      "THRILLER",
+      "MYSTERY"
+    ]
+  },
+  {
+    "title": "Wuthering Heights",
+    "author": {
+      "first_name": "Emily",
+      "last_name": "Brontë"
+    },
+    "year_published": 1847,
+    "genre": [
+      "GOTHIC",
+      "ROMANCE"
+    ]
+  },
+  {
+    "title": "The Adventures of Tom Sawyer",
+    "author": {
+      "first_name": "Mark",
+      "last_name": "Twain"
+    },
+    "year_published": 1876,
+    "genre": [
+      "ADVENTURE"
+    ]
+  },
+  {
+    "title": "The Road",
+    "author": {
+      "first_name": "Cormac",
+      "last_name": "McCarthy"
+    },
+    "year_published": 2006,
+    "genre": [
+      "POST-APOCALYPTIC"
+    ]
+  },
+  {
+    "title": "Alice's Adventures in Wonderland",
+    "author": {
+      "first_name": "Lewis",
+      "last_name": "Carroll"
+    },
+    "year_published": 1865,
+    "genre": [
+      "FANTASY",
+      "CHILDREN"
+    ]
+  },
+  {
+    "title": "Moby-Dick",
+    "author": {
+      "first_name": "Herman",
+      "last_name": "Melville"
+    },
+    "year_published": 1851,
+    "genre": [
+      "ADVENTURE",
+      "EPIC"
+    ]
+  },
+  {
+    "title": "Crime and Punishment",
+    "author": {
+      "first_name": "Fyodor",
+      "last_name": "Dostoevsky"
+    },
+    "year_published": 1866,
+    "genre": [
+      "PSYCHOLOGICAL"
+    ]
+  },
+  {
+    "title": "The Bell Jar",
+    "author": {
+      "first_name": "Sylvia",
+      "last_name": "Plath"
+    },
+    "year_published": 1963,
+    "genre": [
+      "PSYCHOLOGICAL",
+      "SEMI-AUTOBIOGRAPHICAL"
+    ]
+  },
+  {
+    "title": "Lord of the Flies",
+    "author": {
+      "first_name": "William",
+      "last_name": "Golding"
+    },
+    "year_published": 1954,
+    "genre": [
+      "ALLEGORICAL"
+    ]
+  },
+  {
+    "title": "The Old Man and the Sea",
+    "author": {
+      "first_name": "Ernest",
+      "last_name": "Hemingway"
+    },
+    "year_published": 1952,
+    "genre": [
+      "ADVENTURE"
+    ]
+  },
+  {
+    "title": "The Hobbit",
+    "author": {
+      "first_name": "J.R.R.",
+      "last_name": "Tolkien"
+    },
+    "year_published": 1937,
+    "genre": [
+      "FANTASY",
+      "CHILDREN"
+    ]
+  },
+  {
+    "title": "The Odyssey",
+    "author": {
+      "first_name": "Homer"
+    },
+    "year_published": -800,
+    "genre": [
+      "EPIC"
+    ]
+  },
+  {
+    "title": "The Count of Monte Cristo",
+    "author": {
+      "first_name": "Alexandre",
+      "last_name": "Dumas"
+    },
+    "year_published": 1844,
+    "genre": [
+      "ADVENTURE"
+    ]
+  },
+  {
+    "title": "The Brothers Karamazov",
+    "author": {
+      "first_name": "Fyodor",
+      "last_name": "Dostoevsky"
+    },
+    "year_published": 1880,
+    "genre": [
+      "PHILOSOPHICAL"
+    ]
+  },
+  {
+    "title": "Dracula",
+    "author": {
+      "first_name": "Bram",
+      "last_name": "Stoker"
+    },
+    "year_published": 1897,
+    "genre": [
+      "GOTHIC",
+      "HORROR"
+    ]
+  },
+  {
+    "title": "The Secret Garden",
+    "author": {
+      "first_name": "Frances",
+      "last_name": "Hodgson Burnett"
+    },
+    "year_published": 1911,
+    "genre": [
+      "CHILDREN"
+    ]
+  },
+  {
+    "title": "Les Misérables",
+    "author": {
+      "first_name": "Victor",
+      "last_name": "Hugo"
+    },
+    "year_published": 1862,
+    "genre": [
+      "EPIC"
+    ]
+  },
+  {
+    "title": "The Divine Comedy",
+    "author": {
+      "first_name": "Dante",
+      "last_name": "Alighieri"
+    },
+    "year_published": 1320,
+    "genre": [
+      "EPIC",
+      "ALLEGORICAL"
+    ]
+  },
+  {
+    "title": "The Adventures of Huckleberry Finn",
+    "author": {
+      "first_name": "Mark",
+      "last_name": "Twain"
+    },
+    "year_published": 1884,
+    "genre": [
+      "ADVENTURE",
+      "SOUTHERN_GOTHIC"
+    ]
+  },
+  {
+    "title": "Pippi Longstocking",
+    "author": {
+      "first_name": "Astrid",
+      "last_name": "Lindgren"
+    },
+    "year_published": 1945,
+    "genre": [
+      "CHILDREN"
+    ]
+  },
+  {
+    "title": "War and Peace",
+    "author": {
+      "first_name": "Leo",
+      "last_name": "Tolstoy"
+    },
+    "year_published": 1869,
+    "genre": [
+      "EPIC"
+    ]
+  },
+  {
+    "title": "Anna Karenina",
+    "author": {
+      "first_name": "Leo",
+      "last_name": "Tolstoy"
+    },
+    "year_published": 1877,
+    "genre": [
+      "ROMANCE"
+    ]
+  },
+  {
+    "title": "Gulliver's Travels",
+    "author": {
+      "first_name": "Jonathan",
+      "last_name": "Swift"
+    },
+    "year_published": 1726,
+    "genre": [
+      "SATIRE",
+      "ADVENTURE"
+    ]
+  },
+  {
+    "title": "The Time Machine",
+    "author": {
+      "first_name": "H.G.",
+      "last_name": "Wells"
+    },
+    "year_published": 1895,
+    "genre": [
+      "SCIENCE_FICTION"
+    ]
+  },
+  {
+    "title": "Journey to the Center of the Earth",
+    "author": {
+      "first_name": "Jules",
+      "last_name": "Verne"
+    },
+    "year_published": 1864,
+    "genre": [
+      "ADVENTURE",
+      "SCIENCE_FICTION"
+    ]
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": {
+      "first_name": "Jane",
+      "last_name": "Austen"
+    },
+    "year_published": 1813,
+    "genre": [
+      "ROMANCE",
+      "SATIRE"
+    ]
+  },
+  {
+    "title": "Crime and Punishment",
+    "author": {
+      "first_name": "Fyodor",
+      "last_name": "Dostoevsky"
+    },
+    "year_published": 1866,
+    "genre": [
+      "PSYCHOLOGICAL"
+    ]
+  },
+  {
+    "title": "One Hundred Years of Solitude",
+    "author": {
+      "first_name": "Gabriel",
+      "last_name": "García Márquez"
+    },
+    "year_published": 1967,
+    "genre": [
+      "MAGIC_REALISM"
+    ]
+  },
+  {
+    "title": "The Stand",
+    "author": {
+      "first_name": "Stephen",
+      "last_name": "King"
+    },
+    "year_published": 1978,
+    "genre": [
+      "POST-APOCALYPTIC",
+      "HORROR"
+    ]
+  },
+  {
+    "title": "The Little Prince",
+    "author": {
+      "first_name": "Antoine",
+      "last_name": "de Saint-Exupéry"
+    },
+    "year_published": 1943,
+    "genre": [
+      "CHILDREN",
+      "PHILOSOPHICAL"
+    ]
+  },
+  {
+    "title": "The Trial",
+    "author": {
+      "first_name": "Franz",
+      "last_name": "Kafka"
+    },
+    "year_published": 1925,
+    "genre": [
+      "PSYCHOLOGICAL",
+      "ABSURDIST"
+    ]
+  },
+  {
+    "title": "The Call of the Wild",
+    "author": {
+      "first_name": "Jack",
+      "last_name": "London"
+    },
+    "year_published": 1903,
+    "genre": [
+      "ADVENTURE"
+    ]
+  },
+  {
+    "title": "The Metamorphosis",
+    "author": {
+      "first_name": "Franz",
+      "last_name": "Kafka"
+    },
+    "year_published": 1915,
+    "genre": [
+      "ABSURDIST"
+    ]
+  },
+  {
+    "title": "Little Women",
+    "author": {
+      "first_name": "Louisa May",
+      "last_name": "Alcott"
+    },
+    "year_published": 1868,
+    "genre": [
+      "COMING-OF-AGE"
+    ]
+  },
+  {
+    "title": "Winnie-the-Pooh",
+    "author": {
+      "first_name": "A.A.",
+      "last_name": "Milne"
+    },
+    "year_published": 1926,
+    "genre": [
+      "CHILDREN"
+    ]
+  }
+]

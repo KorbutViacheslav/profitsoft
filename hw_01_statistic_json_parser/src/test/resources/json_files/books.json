@@ -1,0 +1,29 @@
+[
+  {
+    "title": "1984",
+    "author": {
+      "first_name": "George",
+      "last_name": "Orwell"
+    },
+    "year_published": 1949,
+    "genre": ["DYSTOPIAN", "POLITICAL_FICTION"]
+  },
+  {
+    "title": "Pride and Prejudice",
+    "author": {
+      "first_name": "Jane",
+      "last_name": "Austen"
+    },
+    "year_published": 1813,
+    "genre": ["ROMANCE", "SATIRE"]
+  },
+  {
+    "title": "Romeo and Juliet",
+    "author": {
+      "first_name": "William",
+      "last_name": "Shakespeare"
+    },
+    "year_published": 1597,
+    "genre": ["ROMANCE", "TRAGEDY"]
+  }
+]

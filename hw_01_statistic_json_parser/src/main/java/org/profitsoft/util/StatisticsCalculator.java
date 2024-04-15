@@ -7,13 +7,13 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * EN: Utility class for calculating statistics based on a list of books.
- * This class provides methods to calculate statistics such as the number of books by title, author, year published, or genre.
+ * Author: Viacheslav Korbut
+ * Date: 04.04.2024
  */
 
 /**
- * Author: Viacheslav Korbut
- * Date: 04.04.2024
+ * Utility class for calculating statistics based on a list of books.
+ * This class provides methods to calculate statistics such as the number of books by title, author, year published, or genre.
  */
 public class StatisticsCalculator {
 
@@ -21,7 +21,7 @@ public class StatisticsCalculator {
     }
 
     /**
-     * EN: Calculates statistics based on the specified attribute and list of books.
+     * Calculates statistics based on the specified attribute and list of books.
      *
      * @param attribute The attribute to calculate statistics for (e.g., "title", "author", "yearPublished", "genre").
      * @param bookList  The list of books to calculate statistics from.
