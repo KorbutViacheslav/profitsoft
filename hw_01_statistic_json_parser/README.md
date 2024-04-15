@@ -15,6 +15,7 @@ Path to JSON files:
 Results files path
 - src/main/resources/statistic_results
 
+If needed you can change field **_ATTRIBUTE_** in AppStatisticJSONParser.class
 ### Input Files
 
 The JSON files should be structured as follows:
@@ -64,7 +65,7 @@ Example output for statistics_by_genre.xml:
 ### Testing
 
     Unit tests are provided for parsing JSON filesand generating statistics.
-
+![tests](https://github.com/KorbutViacheslav/profitsoft/blob/main/hw_01_statistic_json_parser/image/tests_statistic_json_parser.jpg?raw=true)
 ### Experiment Results
 
     The application was tested with different numbers of threads for parsing files (2, 4, 8).
@@ -73,3 +74,10 @@ Results of the experiments:
 * Time taken: 189 milliseconds with 2 threads.
 * Time taken: 222 milliseconds with 4 threads.
 * Time taken: 200 milliseconds with 8 threads.
+
+### Summary
+
+---
+It's important to thoroughly test multi-threaded functionality and consider factors like the number of files processed, thread count, and system performance. By evaluating these aspects carefully, we ensure our application performs optimally across different scenarios.
+
+---
