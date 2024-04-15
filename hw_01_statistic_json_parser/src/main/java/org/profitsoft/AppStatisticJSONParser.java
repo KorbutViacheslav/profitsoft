@@ -13,13 +13,23 @@ import java.util.Map;
  * Date: 15.04.2024
  */
 public class AppStatisticJSONParser {
+
     private static final String JSON_FILE_PATH = "src/main/resources/json_files";
     private static final String ATTRIBUTE = "genre";
-    //String s = "E:\\JAVA\\projekt\\profitsoft";
 
     public static void main(String[] args) {
+        //Fixed start current time
+        long startTime = System.currentTimeMillis();
+
         //We take all books from json path
         List<Book> bookList = JSONFileParser.parseBooksFromFolder(JSON_FILE_PATH);
+
+        //Fixed end time
+        long endTime = System.currentTimeMillis();
+
+        //Calculate duration parse
+        long duration = endTime - startTime;
+        System.out.println("Time taken: " + duration + " milliseconds with "+ JSONFileParser.getNumberThreads()+" threads.");
 
         //We take statistic map on the attribute
         Map<String, Integer> attributeMap = StatisticsCalculator.getStatistic(ATTRIBUTE, bookList);

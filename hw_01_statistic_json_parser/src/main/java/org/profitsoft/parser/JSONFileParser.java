@@ -26,7 +26,7 @@ public class JSONFileParser {
     /**
      * The number of threads used for parallel parsing of JSON files.
      */
-    private static final int NUM_THREADS = 4;
+    private static final int NUM_THREADS = 8;
 
     private static ExecutorService executor;
 
