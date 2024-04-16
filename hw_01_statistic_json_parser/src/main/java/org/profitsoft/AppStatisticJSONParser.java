@@ -9,7 +9,6 @@ import org.profitsoft.writer.StatisticsXmlWriter;
 import java.util.List;
 import java.util.Map;
 
-import static org.profitsoft.util.StatisticsFileNameGenerator.getAbsolutePath;
 
 /**
  * Author: Viacheslav Korbut
@@ -32,7 +31,7 @@ public class AppStatisticJSONParser {
 
         //Calculate duration parse
         long duration = endTime - startTime;
-        System.out.println("Time taken: " + duration + " milliseconds with "+ JSONFileParser.getNumberThreads()+" threads.");
+        System.out.println("Time taken: " + duration + " milliseconds with " + JSONFileParser.getNumberThreads() + " threads.");
 
         //We take statistic map on the attribute
         Map<String, Integer> attributeMap = StatisticsCalculator.getStatistic(ATTRIBUTE, bookList);

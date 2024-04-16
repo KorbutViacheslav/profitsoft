@@ -35,12 +35,4 @@ public class StatisticsFileNameGenerator {
                 .append(TEMPLATE_POSTFIX_XML);
         return stringBuilder.toString();
     }
-
-    public static String getAbsolutePath(String relativePath) {
-        Path currentPath = Paths.get("").toAbsolutePath();
-        Path absolutePath = currentPath.resolve(relativePath);
-        return absolutePath.toString();
-    }
-
-
 }
