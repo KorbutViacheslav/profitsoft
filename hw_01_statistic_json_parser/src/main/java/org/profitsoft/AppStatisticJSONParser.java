@@ -3,7 +3,6 @@ package org.profitsoft;
 import org.profitsoft.model.Book;
 import org.profitsoft.parser.JSONFileParser;
 import org.profitsoft.util.StatisticsCalculator;
-import org.profitsoft.util.StatisticsFileNameGenerator;
 import org.profitsoft.writer.StatisticsXmlWriter;
 
 import java.util.List;
