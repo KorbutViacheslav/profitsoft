@@ -5,6 +5,9 @@ package org.profitsoft.util;
  * Date: 08.04.2024
  */
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  * Utility class for generating file names for statistics.
  * This class provides a convenient way to generate file names for statistics in XML format based on statistical attributes.
@@ -14,10 +17,10 @@ package org.profitsoft.util;
  */
 
 public class StatisticsFileNameGenerator {
-    private final static String RESULTS_DIRECTORY = "src/main/resources/statistic_results/";
+    private final static String RESULTS_DIRECTORY = "hw_01_statistic_json_parser/src/main/resources/statistic_results/";
     private final static String PART_OF_FILE_NAME = "statistics_by_";
     private final static String TEMPLATE_POSTFIX_XML = ".xml";
-    public final static String PATH_TO_JSON_FILES = "src/main/resources/json_files/";
+    public final static String PATH_TO_JSON_FILES = "hw_01_statistic_json_parser/src/main/resources/json_files/";
 
     /**
      * Generates an XML file name for the given statistics attribute.
@@ -31,6 +34,12 @@ public class StatisticsFileNameGenerator {
                 .append(attribute)
                 .append(TEMPLATE_POSTFIX_XML);
         return stringBuilder.toString();
+    }
+
+    public static String getAbsolutePath(String relativePath) {
+        Path currentPath = Paths.get("").toAbsolutePath();
+        Path absolutePath = currentPath.resolve(relativePath);
+        return absolutePath.toString();
     }
 
 

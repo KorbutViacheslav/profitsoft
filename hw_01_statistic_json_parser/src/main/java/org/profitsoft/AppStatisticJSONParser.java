@@ -3,10 +3,13 @@ package org.profitsoft;
 import org.profitsoft.model.Book;
 import org.profitsoft.parser.JSONFileParser;
 import org.profitsoft.util.StatisticsCalculator;
+import org.profitsoft.util.StatisticsFileNameGenerator;
 import org.profitsoft.writer.StatisticsXmlWriter;
 
 import java.util.List;
 import java.util.Map;
+
+import static org.profitsoft.util.StatisticsFileNameGenerator.getAbsolutePath;
 
 /**
  * Author: Viacheslav Korbut
@@ -14,8 +17,8 @@ import java.util.Map;
  */
 public class AppStatisticJSONParser {
 
-    private static final String JSON_FILE_PATH = "src/main/resources/json_files";
-    private static final String ATTRIBUTE = "genre";
+    private static final String JSON_FILE_PATH = "hw_01_statistic_json_parser/src/main/resources/json_files";
+    private static final String ATTRIBUTE = "author";
 
     public static void main(String[] args) {
         //Fixed start current time

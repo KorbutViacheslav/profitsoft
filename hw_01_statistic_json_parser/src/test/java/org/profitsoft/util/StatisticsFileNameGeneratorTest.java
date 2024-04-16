@@ -13,13 +13,13 @@ public class StatisticsFileNameGeneratorTest {
     @Test
     void testGetXMLFileName() {
         String actual = StatisticsFileNameGenerator.getXMLFileName("author");
-        String expected = "src/main/resources/statistic_results/statistics_by_author.xml";
+        String expected = "hw_01_statistic_json_parser/src/main/resources/statistic_results/statistics_by_author.xml";
         assertEquals(expected, actual);
     }
 
     @Test
     void testGetXMLFileNameIfEmptyAttribute() {
-        String expected = "src/main/resources/statistic_results/statistics_by_.xml";
+        String expected = "hw_01_statistic_json_parser/src/main/resources/statistic_results/statistics_by_.xml";
         String actual = StatisticsFileNameGenerator.getXMLFileName("");
         assertEquals(expected, actual);
     }
