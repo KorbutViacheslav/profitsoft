@@ -13,7 +13,7 @@ Path to JSON files:
 - src/main/resources/json_files
 
 Results files path
-- src/main/resources/statistic_results
+- hw_01_statistic_json_parser/src/main/resources/json_files
 
 If needed you can change field **_ATTRIBUTE_** in AppStatisticJSONParser.class
 ### Input Files
@@ -78,6 +78,8 @@ Results of the experiments:
 ### Summary
 
 ---
-It's important to thoroughly test multi-threaded functionality and consider factors like the number of files processed, thread count, and system performance. By evaluating these aspects carefully, we ensure our application performs optimally across different scenarios.
+Upon completing the project, the program generates an XML file with statistics sorted by quantity from highest to lowest. Using CompletableFuture for parsing ensures efficient thread utilization. Experiments have shown that varying the number of threads has little impact on program execution time. This could be due to insufficient system load or a small amount of data being processed during parsing. Additionally, it's possible that file parsing operations are not sufficiently complex or time-consuming to demonstrate significant benefits from parallel execution across multiple threads.
+
+Overall, this project enables efficient data processing and analysis through parallel processing using CompletableFuture and optimization of thread count to achieve maximum productivity. Furthermore, it's worth noting that unit tests for file parsing logic and statistics generation were written and successfully passed to ensure program reliability and quality.
 
 ---
