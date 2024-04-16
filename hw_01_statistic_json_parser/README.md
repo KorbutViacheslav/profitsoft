@@ -1,5 +1,5 @@
 # Statistics JSON Parser
-* [Task issued](https://docs.google.com/document/d/18uO9S6XydsqntCqCpOL_z67-fEznwIvCPWUVqRW6pE8/edit?hl=ru)
+* [Task issued](https://docs.google.com/document/d/18uO9S6XydsqntCqCpOL_z67-fEznwIvCPWUVqRW6pE8/edit?hl=ru) (Only for users who have access to the internship)
 ---
 This console application parses a list of JSON files
 related to the main entity and generates statistics based on one of its attributes.
@@ -16,6 +16,29 @@ Results files path
 - hw_01_statistic_json_parser/src/main/resources/json_files
 
 If needed you can change field **_ATTRIBUTE_** in AppStatisticJSONParser.class
+
+### Entities Overview
+```java
+public class Book {
+    private String title;
+    private Author author;
+    private Integer yearPublished;
+    private List<Genre> genre;
+
+}
+
+public class Author {
+    private String firstName;
+    private String lastName;
+
+}
+
+public enum Genre {FANTASY, EPIC, HORROR, PSYCHOLOGICAL, THRILLER, CHILDREN, 
+    DYSTOPIAN, POLITICAL_FICTION, ROMANCE, SATIRE, TRAGEDY, FOR_CHILDREN
+}
+```
+
+
 ### Input Files
 
 The JSON files should be structured as follows:
@@ -64,7 +87,8 @@ Example output for statistics_by_genre.xml:
 ```
 ### Testing
 
-    Unit tests are provided for parsing JSON filesand generating statistics.
+    Unit tests for file parsing logic and statistics generation were meticulously crafted and
+    passed with flying colors, ensuring the robustness and reliability of the program.
 ![tests](https://github.com/KorbutViacheslav/profitsoft/blob/main/hw_01_statistic_json_parser/image/tests_statistic_json_parser.jpg?raw=true)
 ### Experiment Results
 
