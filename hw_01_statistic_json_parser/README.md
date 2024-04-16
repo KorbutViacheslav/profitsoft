@@ -10,10 +10,10 @@ Run
 - AppStatisticJSONParser.class
 
 Path to JSON files:
-- src/main/resources/json_files
+- hw_01_statistic_json_parser/src/main/resources/json_files
 
 Results files path
-- hw_01_statistic_json_parser/src/main/resources/json_files
+- hw_01_statistic_json_parser/src/main/resources/statistic_results
 
 If needed you can change field **_ATTRIBUTE_** in AppStatisticJSONParser.class
 
