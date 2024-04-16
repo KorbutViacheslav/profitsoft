@@ -17,7 +17,7 @@ import java.util.Map;
 public class AppStatisticJSONParser {
 
     private static final String JSON_FILE_PATH = "hw_01_statistic_json_parser/src/main/resources/json_files";
-    private static final String ATTRIBUTE = "author";
+    private static final String ATTRIBUTE = "year_published";
 
     public static void main(String[] args) {
         //Fixed start current time

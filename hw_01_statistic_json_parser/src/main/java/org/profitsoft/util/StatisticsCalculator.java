@@ -35,7 +35,7 @@ public class StatisticsCalculator {
         for (Book book : bookList) {
             switch (attribute) {
                 case "title" -> statistics.compute(book.getTitle(), (key, value) -> value == null ? 1 : value + 1);
-                case "yearPublished" ->
+                case "yearPublished", "year_published" ->
                         statistics.compute(book.getYearPublished().toString(), (key, value) -> value == null ? 1 : value + 1);
                 case "author" ->
                         statistics.compute(book.getAuthor().getFirstName() + " " + book.getAuthor().getLastName(), (key, value) -> value == null ? 1 : value + 1);
