@@ -21,7 +21,7 @@ public class AppStatisticJSONParser {
     /**
      * The attribute based on which statistics will be calculated.
      */
-    private static final String ATTRIBUTE = "year_published";
+    private static final String ATTRIBUTE = "title";
 
     /**
      * The main method of the application. It performs the following tasks:

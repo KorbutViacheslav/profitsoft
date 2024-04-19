@@ -1,5 +1,6 @@
 # Statistics JSON Parser
 * [Task issued](https://docs.google.com/document/d/18uO9S6XydsqntCqCpOL_z67-fEznwIvCPWUVqRW6pE8/edit?hl=ru) (Only for users who have access to the internship)
+* A short video about how the application works [YouTube](https://www.youtube.com/watch?v=AxmRCDS6iU4)
 ---
 This console application parses a list of JSON files
 related to the main entity and generates statistics based on one of its attributes.
