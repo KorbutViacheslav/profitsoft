@@ -55,7 +55,7 @@ public class AuthorControllerImpl implements AuthorController {
     /**
      * {@inheritDoc}
      */
-    @PatchMapping("/author/{id}")
+    @PutMapping("/author/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Override
     public AuthorReadDTO updateAuthorById(@PathVariable Integer id, @RequestBody @Valid AuthorCreateDTO authorCreateDTO) {

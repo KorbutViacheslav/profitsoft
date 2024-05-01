@@ -60,7 +60,7 @@ public class BookControllerImpl implements BookController {
     /**
      * {@inheritDoc}
      */
-    @PatchMapping("/book/{id}")
+    @PutMapping("/book/{id}")
     @ResponseStatus(HttpStatus.OK)
     @Override
     public BookReadDTO updateBookById(@PathVariable Integer id, @RequestBody @Valid BookCreateDTO bookCreateDTO) {
