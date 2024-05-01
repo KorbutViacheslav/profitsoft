@@ -10,6 +10,7 @@
     <!-- Modules -->
     <modules>
         <module>hw_01_statistic_json_parser</module>
+        <module>hw_02_book_management_application</module>
     </modules>
 
     <build>

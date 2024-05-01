@@ -1,0 +1,71 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_author_and_book_tables
+      author: Viacheslav Korbut
+      changes:
+        - createTable:
+            tableName: author
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: first_name
+                  type: varchar(255)
+              - column:
+                  name: last_name
+                  type: varchar(255)
+
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: title
+                  type: varchar(255)
+              - column:
+                  name: author_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: year_published
+                  type: int
+
+        - addForeignKeyConstraint:
+            baseColumnNames: author_id
+            baseTableName: book
+            constraintName: fk_book_author
+            referencedColumnNames: id
+            referencedTableName: author
+            onDelete: CASCADE
+            onUpdate: CASCADE
+
+        - createTable:
+            tableName: book_genres
+            columns:
+              - column:
+                  name: book_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: genres
+                  type: varchar(255)
+
+        - addForeignKeyConstraint:
+            baseColumnNames: book_id
+            baseTableName: book_genres
+            constraintName: fk_book_genres_book
+            referencedColumnNames: id
+            referencedTableName: book
+            onDelete: CASCADE
+            onUpdate: CASCADE
