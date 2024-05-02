@@ -97,10 +97,14 @@ public interface BookController {
     ResponseEntity<Resource> generateReport(BookFilterRequest request);
 
     /**
-     * Uploads books from a JSON file and saves valid entries to the database.
+     * Endpoint for uploading books from a JSON file.
+     * The response body contains information about the number of books successfully imported
+     * (successfullyImported), the number of failed imports (failedImports),
+     * and a list of failure reasons (failureReasons) for each book that failed to import,
+     * including the book title and the reason for failure.
      *
-     * @param file The MultipartFile containing the JSON file.
-     * @return A ResponseEntity containing a Map with the response data.
+     * @param file The JSON file containing book data.
+     * @return A response containing statistics about the uploaded books.
      */
     @Operation(summary = "Upload books from JSON file", description = "Upload books from JSON file and save valid entries to the database.")
     @ApiResponse(responseCode = "200", description = "Books uploaded successfully")

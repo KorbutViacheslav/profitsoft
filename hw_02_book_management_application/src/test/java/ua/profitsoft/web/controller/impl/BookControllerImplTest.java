@@ -106,7 +106,7 @@ class BookControllerImplTest {
         Set<String> updatedGenres = new HashSet<>(List.of("Mystery", "Thriller"));
         BookCreateDTO updatedBookCreateDTO = new BookCreateDTO("Updated Book", 2021, updatedAuthorCreateDTO, updatedGenres);
 
-        mockMvc.perform(patch("/api/book/{id}", book.getId())
+        mockMvc.perform(put("/api/book/{id}", book.getId())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(updatedBookCreateDTO)))
                 .andExpect(status().isOk())

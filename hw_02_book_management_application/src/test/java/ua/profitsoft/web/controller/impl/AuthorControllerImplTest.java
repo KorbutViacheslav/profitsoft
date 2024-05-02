@@ -83,7 +83,7 @@ class AuthorControllerImplTest {
     void shouldUpdateAuthor() throws Exception {
         Author author = authors.get(0);
         AuthorCreateDTO updatedAuthorCreateDTO = new AuthorCreateDTO("UpdatedFirstName", "UpdatedLastName");
-        mockMvc.perform(patch("/api/author/{id}", author.getId())
+        mockMvc.perform(put("/api/author/{id}", author.getId())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(updatedAuthorCreateDTO)))
                 .andExpect(status().isOk())

@@ -1,6 +1,6 @@
 # Spring Boot REST API Project. Book Management Application.
 * [Task issued](https://docs.google.com/document/d/15W34SUZ0n3D_NGzUL9njgQROZdyWHlVFHQx5kK8YZ_M/edit?hl=ru#heading=h.arwffw3rrrrx) (Only for users who have access to the internship)
-* A short video about how the application works [YouTube](https://www.youtube.com/watch?v=AxmRCDS6iU4)
+* A short video about how the application works [YouTube](https://www.youtube.com/watch?v=mrurwEEw2Tc&list=PL_j-WX8xxd2XTD49lDzcuVb7TP6jVeYf1&index=2)
 ---
 ### Application Description
 This is a Spring Boot application that provides a RESTful API
