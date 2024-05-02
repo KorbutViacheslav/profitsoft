@@ -79,5 +79,54 @@
     "genres": [
       "Unknown Genre"
     ]
+  },
+  {
+    "title": "The Shining",
+    "yearPublished": 1977,
+    "author": {
+      "firstName": "Stephen",
+      "lastName": "King"
+    },
+    "genres": [
+      "Horror",
+      "Psychological fiction"
+    ]
+  },
+  {
+    "title": "Misery",
+    "yearPublished": 1987,
+    "author": {
+      "firstName": "Stephen",
+      "lastName": "King"
+    },
+    "genres": [
+      "Psychological horror",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "The Stand",
+    "yearPublished": 1978,
+    "author": {
+      "firstName": "Stephen",
+      "lastName": "King"
+    },
+    "genres": [
+      "Apocalyptic fiction",
+      "Horror",
+      "Fantasy"
+    ]
+  },
+  {
+    "title": "Carrie",
+    "yearPublished": 1974,
+    "author": {
+      "firstName": "Stephen",
+      "lastName": "King"
+    },
+    "genres": [
+      "Horror",
+      "Psychological horror"
+    ]
   }
 ]

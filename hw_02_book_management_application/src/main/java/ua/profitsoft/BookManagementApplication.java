@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @OpenAPIDefinition(info = @Info(
-        title = "Book API",
-        version = "1.0.0",
+        title = "Book Management Application",
+        version = "0.9.1",
         description = "Spring Boot RESTful service for managing books and authors."))
 public class BookManagementApplication {
 
