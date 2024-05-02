@@ -69,3 +69,23 @@ databaseChangeLog:
             referencedTableName: book
             onDelete: CASCADE
             onUpdate: CASCADE
+
+        - createIndex:
+            indexName: unique_author_name
+            tableName: author
+            unique: true
+            columns:
+              - column:
+                  name: first_name
+              - column:
+                  name: last_name
+
+        - createIndex:
+            indexName: unique_book_title_year
+            tableName: book
+            unique: true
+            columns:
+              - column:
+                  name: title
+              - column:
+                  name: year_published
