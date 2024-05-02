@@ -10,4 +10,5 @@ databaseChangeLog:
               ('Jane', 'Austen'),
               ('Leo', 'Tolstoy'),
               ('George', 'Orwell'),
-              ('Ernest', 'Hemingway');
+              ('Ernest', 'Hemingway'),
+              ('Stephen','King');

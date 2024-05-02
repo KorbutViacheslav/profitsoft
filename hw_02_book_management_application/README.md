@@ -23,7 +23,7 @@ and bulk import of books from a JSON file.
 - Configure postgresql database connection in the [application.properties](src/main/resources/application.yaml) file.
 
 **Run**
-- [SpringBootRestApiApplication](src/main/java/ua/profitsoft/RoughCopyProfitsoftSpringBootRestApiApplication.java)
+- [BookManagementApplication](src/main/java/ua/profitsoft/BookManagementApplication.java)
 
 **Database Initialization**
 - The application utilizes Liquibase [scripts](src/main/resources/db/changelog/V1__init.yml) to manage the database schema.
@@ -43,22 +43,22 @@ and bulk import of books from a JSON file.
 **AuthorController**
 
     Endpoints:
-        POST /authors: Create a new author.
-        GET /authors/{id}: Retrieve an author by ID.
-        PUT /authors/{id}: Update an author by ID.
-        DELETE /authors/{id}: Delete an author by ID.
+        POST /author: Create a new author.
+        GET /author/{id}: Retrieve an author by ID.
+        PUT /author/{id}: Update an author by ID.
+        DELETE /author/{id}: Delete an author by ID.
         GET /authors: Retrieve a list of all authors.
 
 **BookController**
 
     Endpoints:
-        POST /books: Create a new book.
-        GET /books/{id}: Retrieve a book by ID.
-        PUT /books/{id}: Update a book by ID.
-        DELETE /books/{id}: Delete a book by ID.
-        GET /books: Retrieve a page of books based on filters.
-        GET /books/report: Generate a report for books based on filters.
-        POST /books/upload: Upload books from a JSON file.
+        POST /book: Create a new book.
+        GET /book/{id}: Retrieve a book by ID.
+        PUT /book/{id}: Update a book by ID.
+        DELETE /book/{id}: Delete a book by ID.
+        GET /book/filter_list: Retrieve a page of books based on filters.
+        GET /book/filter_report: Generate a report for books based on filters.
+        POST /book/upload: Upload books from a JSON file.
 
 ---
 ### Integration Testing

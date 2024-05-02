@@ -60,6 +60,7 @@
   },
   {
     "title": "Book Without Year",
+    "yearPublished": 111111,
     "author": {
       "firstName": "Ernest",
       "lastName": "Hemingway"

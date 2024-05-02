@@ -35,7 +35,7 @@ public interface AuthorController {
     @Operation(summary = "Get an author by ID", description = "Retrieve an author from the database by its unique ID.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Author found successfully"),
-            @ApiResponse(responseCode = "404", description = "Author not found", content = @Content)
+            @ApiResponse(responseCode = "404", description = "No author was found with this ID.", content = @Content)
     })
     AuthorReadDTO getAuthorById(Integer id);
 
@@ -50,7 +50,7 @@ public interface AuthorController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Author updated successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid request body", content = @Content),
-            @ApiResponse(responseCode = "404", description = "Author not found", content = @Content)
+            @ApiResponse(responseCode = "404", description = "No author was found with this ID.", content = @Content)
     })
     AuthorReadDTO updateAuthorById(Integer id, AuthorCreateDTO authorCreateDTO);
 
@@ -62,7 +62,7 @@ public interface AuthorController {
     @Operation(summary = "Delete an author by ID", description = "Delete an author from the database by its unique ID.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Author deleted successfully"),
-            @ApiResponse(responseCode = "404", description = "Author not found", content = @Content)
+            @ApiResponse(responseCode = "404", description = "No author was found with this ID.", content = @Content)
     })
     void deleteAuthorById(Integer id);
 

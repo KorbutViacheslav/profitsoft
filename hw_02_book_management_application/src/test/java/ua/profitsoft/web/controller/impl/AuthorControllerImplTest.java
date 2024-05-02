@@ -1,4 +1,4 @@
-package ua.profitsoft.web.controller;
+package ua.profitsoft.web.controller.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
@@ -13,7 +13,7 @@ import ua.profitsoft.BookManagementApplication;
 import ua.profitsoft.dto.create.AuthorCreateDTO;
 import ua.profitsoft.model.Author;
 import ua.profitsoft.repository.AuthorRepository;
-import ua.profitsoft.util.mapper.AuthorMapper;
+import ua.profitsoft.mapper.AuthorMapper;
 
 import java.util.List;
 import java.util.stream.Collectors;

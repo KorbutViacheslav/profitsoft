@@ -1,4 +1,4 @@
-package ua.profitsoft.util.mapper;
+package ua.profitsoft.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

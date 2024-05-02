@@ -1,4 +1,4 @@
-package ua.profitsoft.parser;
+package ua.profitsoft.util.parser;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;

@@ -8,12 +8,12 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: ${DB_PASSWORD}
+    password: ${DB_PASSWORD} #Change password
 
     # JPA properties
   jpa:
     hibernate:
-      ddl-auto: none # When you launch the application for the first time - switch "none" at "create"
+      ddl-auto: validate
     show-sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect

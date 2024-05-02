@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ua.profitsoft.dto.create.BookCreateDTO;
 import ua.profitsoft.dto.read.BookReadDTO;
 import ua.profitsoft.web.filter.BookFilterRequest;
+import ua.profitsoft.web.response_dto.BookStatisticResponse;
 
 import java.util.Map;
 /**
@@ -44,7 +45,7 @@ public interface BookController {
     @Operation(summary = "Get a book by ID", description = "Retrieve a book from the database by its unique ID.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Book found successfully"),
-            @ApiResponse(responseCode = "404", description = "Book not found", content = @Content)
+            @ApiResponse(responseCode = "404", description = "No book was found with this ID.", content = @Content)
     })
     BookReadDTO getBookById(Integer id);
 
@@ -59,7 +60,7 @@ public interface BookController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Book updated successfully"),
             @ApiResponse(responseCode = "400", description = "Invalid request body", content = @Content),
-            @ApiResponse(responseCode = "404", description = "Book not found", content = @Content)
+            @ApiResponse(responseCode = "404", description = "No book was found with this ID.", content = @Content)
     })
     BookReadDTO updateBookById(Integer id, BookCreateDTO bookCreateDTO);
 
@@ -71,7 +72,7 @@ public interface BookController {
     @Operation(summary = "Delete a book by ID", description = "Delete a book from the database by its unique ID.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Book deleted successfully"),
-            @ApiResponse(responseCode = "404", description = "Book not found", content = @Content)
+            @ApiResponse(responseCode = "404", description = "No book was found with this ID.", content = @Content)
     })
     void deleteBookById(Integer id);
 
@@ -83,7 +84,7 @@ public interface BookController {
      */
     @Operation(summary = "Get a page of books by filters", description = "Get a page of books by filters: title, year publish, author name, author last name. Get page and size. You can choose one or many filters.")
     @ApiResponse(responseCode = "200", description = "Books retrieved successfully")
-    Page<BookCreateDTO> page(BookFilterRequest request);
+    Page<BookCreateDTO> bookFilterList(BookFilterRequest request);
 
     /**
      * Generates a report in Excel or CSV format for books based on the given filters.
@@ -103,5 +104,5 @@ public interface BookController {
      */
     @Operation(summary = "Upload books from JSON file", description = "Upload books from JSON file and save valid entries to the database.")
     @ApiResponse(responseCode = "200", description = "Books uploaded successfully")
-    ResponseEntity<Map<String, Object>> uploadBooks(MultipartFile file);
+    BookStatisticResponse uploadBooks(MultipartFile file);
 }

@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import ua.profitsoft.dto.create.BookCreateDTO;
 import ua.profitsoft.dto.read.BookReadDTO;
 import ua.profitsoft.web.filter.BookFilterRequest;
+import ua.profitsoft.web.response_dto.BookStatisticResponse;
 
 import java.util.List;
 import java.util.Map;
@@ -56,7 +57,7 @@ public interface BookService {
      * @param bookFilterRequest the filter criteria for retrieving books
      * @return a page of books matching the filter criteria
      */
-    Page<BookCreateDTO> findAllBooks(BookFilterRequest bookFilterRequest);
+    Page<BookCreateDTO> findAllBooksByFilter(BookFilterRequest bookFilterRequest);
 
     /**
      * Uploads books from a JSON file and determines the number of successfully uploaded books to the database,
@@ -66,5 +67,5 @@ public interface BookService {
      * @return a map containing the count of successfully uploaded books and the count of failed uploads
      * along with the reasons for failure
      */
-    Map<String, Object> uploadBooks(List<BookCreateDTO> bookCreateDTOs);
+    BookStatisticResponse uploadBooks(List<BookCreateDTO> bookCreateDTOs);
 }

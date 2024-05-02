@@ -1,4 +1,4 @@
-package ua.profitsoft.web.controller;
+package ua.profitsoft.web.controller.impl;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -11,11 +11,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ua.profitsoft.parser.BookCreateJsonFileParser;
+import ua.profitsoft.util.parser.BookCreateJsonFileParser;
 import ua.profitsoft.dto.create.BookCreateDTO;
 import ua.profitsoft.dto.read.BookReadDTO;
 import ua.profitsoft.service.BookService;
+import ua.profitsoft.web.controller.BookController;
 import ua.profitsoft.web.filter.BookFilterRequest;
+import ua.profitsoft.web.response_dto.BookStatisticResponse;
 import ua.profitsoft.writer.CSVReportGenerator;
 
 import java.util.List;
@@ -80,20 +82,19 @@ public class BookControllerImpl implements BookController {
     /**
      * {@inheritDoc}
      */
-    @PostMapping("/pageable")
+    @PostMapping("/book/filter_list")
     @ResponseStatus(HttpStatus.OK)
-    @Override
-    public Page<BookCreateDTO> page(@RequestBody BookFilterRequest request) {
-        return bookService.findAllBooks(request);
+    public Page<BookCreateDTO> bookFilterList(@RequestBody BookFilterRequest request) {
+        return bookService.findAllBooksByFilter(request);
     }
 
     /**
      * {@inheritDoc}
      */
-    @PostMapping("/_report")
+    @PostMapping("/book/filter_report")
     @Override
     public ResponseEntity<Resource> generateReport(@RequestBody BookFilterRequest request) {
-        List<BookCreateDTO> bookCreateDTOList = bookService.findAllBooks(request).getContent();
+        List<BookCreateDTO> bookCreateDTOList = bookService.findAllBooksByFilter(request).getContent();
         ByteArrayResource resource = CSVReportGenerator.generateCSVReport(bookCreateDTOList);
         String fileName = CSVReportGenerator.generateFileName();
         return ResponseEntity.ok()
@@ -107,10 +108,9 @@ public class BookControllerImpl implements BookController {
      */
     @PostMapping(value = "/book/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Override
-    public ResponseEntity<Map<String, Object>> uploadBooks(@RequestPart("file") MultipartFile file) {
+    public BookStatisticResponse uploadBooks(@RequestPart("file") MultipartFile file) {
         List<BookCreateDTO> bookCreateDTOs = BookCreateJsonFileParser.parseJsonFile(file);
-        Map<String, Object> response = bookService.uploadBooks(bookCreateDTOs);
-        return ResponseEntity.ok(response);
+        return bookService.uploadBooks(bookCreateDTOs);
     }
 
 }

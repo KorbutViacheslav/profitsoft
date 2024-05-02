@@ -20,10 +20,11 @@ import ua.profitsoft.service.AuthorService;
 import ua.profitsoft.service.BookService;
 import ua.profitsoft.util.exeption.error.ResourceIsExistException;
 import ua.profitsoft.util.exeption.error.ResourceNotFoundException;
-import ua.profitsoft.util.mapper.AuthorMapper;
-import ua.profitsoft.util.mapper.BookMapper;
+import ua.profitsoft.mapper.AuthorMapper;
+import ua.profitsoft.mapper.BookMapper;
 import ua.profitsoft.web.filter.BookFilterRequest;
 import ua.profitsoft.web.filter.BookSpecification;
+import ua.profitsoft.web.response_dto.BookStatisticResponse;
 
 import java.util.*;
 
@@ -99,7 +100,7 @@ public class BookServiceImpl implements BookService {
      * {@inheritDoc}
      */
     @Override
-    public Page<BookCreateDTO> findAllBooks(BookFilterRequest bookFilterRequest) {
+    public Page<BookCreateDTO> findAllBooksByFilter(BookFilterRequest bookFilterRequest) {
         Specification<Book> specification = new BookSpecification(bookFilterRequest);
         Pageable pageable = PageRequest.of(bookFilterRequest.getPage(), bookFilterRequest.getSize());
         Page<Book> bookPage = bookRepository.findAll(specification, pageable);
@@ -109,30 +110,29 @@ public class BookServiceImpl implements BookService {
     /**
      * {@inheritDoc}
      */
-    public Map<String, Object> uploadBooks(List<BookCreateDTO> bookCreateDTOs) {
-        Map<String, Object> response = new HashMap<>();
-        List<String> failedToImport = new ArrayList<>();
+    public BookStatisticResponse uploadBooks(List<BookCreateDTO> bookCreateDTOs) {
         int successfullyImported = 0;
-        int failedToImportCount = 0;
+        int failedImports = 0;
+        List<String> failureReasons = new ArrayList<>();
 
         for (BookCreateDTO bookCreateDTO : bookCreateDTOs) {
             try {
-                if (!isBookCreateDTOValid(bookCreateDTO, failedToImport)) {
-                    failedToImportCount++;
+                if (!isBookCreateDTOValid(bookCreateDTO, failureReasons)) {
+                    failedImports++;
                     continue;
                 }
 
-                Author author = getAuthor(bookCreateDTO, failedToImport);
+                Author author = getAuthor(bookCreateDTO, failureReasons);
                 if (author == null) {
-                    failedToImportCount++;
+                    failedImports++;
                     continue;
                 }
 
                 Book book = bookMapper.toBook(bookCreateDTO);
                 book.setAuthor(author);
 
-                if (isBookDuplicate(book, failedToImport)) {
-                    failedToImportCount++;
+                if (isBookDuplicate(book, failureReasons)) {
+                    failedImports++;
                     continue;
                 }
 
@@ -140,16 +140,12 @@ public class BookServiceImpl implements BookService {
                 successfullyImported++;
             } catch (Exception e) {
                 String errorMessage = e.getMessage();
-                failedToImport.add("Failed to import book: " + bookCreateDTO.getTitle() + ". Reason: " + errorMessage);
-                failedToImportCount++;
+                failureReasons.add("Failed to import book: " + bookCreateDTO.getTitle() + ". Reason: " + errorMessage);
+                failedImports++;
             }
         }
 
-        response.put("successfullyImported", successfullyImported);
-        response.put("failedToImport", failedToImport);
-        response.put("failedToImportCount", failedToImportCount);
-
-        return response;
+        return new BookStatisticResponse(successfullyImported, failedImports, failureReasons);
     }
 
     /**

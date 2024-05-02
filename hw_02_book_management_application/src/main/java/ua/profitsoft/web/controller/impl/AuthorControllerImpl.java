@@ -1,4 +1,4 @@
-package ua.profitsoft.web.controller;
+package ua.profitsoft.web.controller.impl;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -9,7 +9,8 @@ import ua.profitsoft.model.Author;
 import ua.profitsoft.dto.create.AuthorCreateDTO;
 import ua.profitsoft.dto.read.AuthorReadDTO;
 import ua.profitsoft.service.AuthorService;
-import ua.profitsoft.util.mapper.AuthorMapper;
+import ua.profitsoft.mapper.AuthorMapper;
+import ua.profitsoft.web.controller.AuthorController;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package ua.profitsoft.web.controller;
+package ua.profitsoft.web.controller.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
