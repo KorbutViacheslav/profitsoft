@@ -7,3 +7,5 @@ Tasks in the course of study:
 * Statistic JSON parser: [Click](hw_01_statistic_json_parser/README.md)
 ---
 * Book Management Application: [Click](hw_02_book_management_application/README.md)
+---
+* Modern Frontend Book Management: [Click](hw_03_modern_frontend_book_management/README.md)

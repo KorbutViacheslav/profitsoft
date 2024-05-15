@@ -11,6 +11,7 @@
     <modules>
         <module>hw_01_statistic_json_parser</module>
         <module>hw_02_book_management_application</module>
+        <module>hw_03_modern_frontend_book_management</module>
     </modules>
 
     <build>
