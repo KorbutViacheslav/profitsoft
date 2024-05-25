@@ -25,6 +25,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@CrossOrigin("*")
 public class AuthorControllerImpl implements AuthorController {
 
     private final AuthorService authorService;
@@ -80,7 +81,8 @@ public class AuthorControllerImpl implements AuthorController {
     @GetMapping("/authors")
     @ResponseStatus(HttpStatus.OK)
     @Override
-    public List<AuthorCreateDTO> getAllAuthors() {
-        return authorMapper.toListAuthorCreateDTO(authorService.getAllAuthor());
+    public List<AuthorReadDTO> getAllAuthors() {
+        return authorMapper.toListAuthorReadDTO(authorService.getAllAuthor());
+        //return authorMapper.toListAuthorCreateDTO(authorService.getAllAuthor());
     }
 }

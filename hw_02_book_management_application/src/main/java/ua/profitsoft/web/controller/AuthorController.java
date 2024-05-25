@@ -73,5 +73,6 @@ public interface AuthorController {
      */
     @Operation(summary = "Get all authors", description = "Retrieve a list of all authors from the database.")
     @ApiResponse(responseCode = "200", description = "Authors retrieved successfully")
-    List<AuthorCreateDTO> getAllAuthors();
+    //List<AuthorCreateDTO> getAllAuthors();
+    List<AuthorReadDTO> getAllAuthors();
 }

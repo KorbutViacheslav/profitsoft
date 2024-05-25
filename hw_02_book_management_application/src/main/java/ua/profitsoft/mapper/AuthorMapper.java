@@ -38,4 +38,5 @@ public interface AuthorMapper {
     AuthorCreateDTO toAuthorCreateDTO(AuthorReadDTO authorReadDTO);
 
     List<AuthorCreateDTO> toListAuthorCreateDTO(List<Author> authorList);
+    List<AuthorReadDTO> toListAuthorReadDTO(List<Author> authorList);
 }
