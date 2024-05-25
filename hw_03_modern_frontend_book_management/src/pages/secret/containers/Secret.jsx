@@ -1,15 +1,16 @@
-import { useIntl } from 'react-intl';
 import React from 'react';
 import Typography from 'components/Typography';
+import Header from "../header/Header";
 
 function Secret() {
-  const { formatMessage } = useIntl();
-
-  return (
-    <Typography>
-      {formatMessage({ id: 'title' })}
-    </Typography>
-  );
+    return (
+        <Typography>
+            <>
+                <Header />
+                <h1>Hello from new world</h1>
+            </>
+        </Typography>
+    );
 }
 
 export default Secret;
