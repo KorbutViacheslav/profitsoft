@@ -1,0 +1,29 @@
+.pagination-custom {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination-custom .page-item {
+    margin: 0 5px;
+}
+
+.pagination-custom .page-item.active .page-link {
+    background-color: #dcdcdc;
+    border-color: #dcdcdc;
+    color: #000;
+}
+
+.pagination-custom .page-link {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.pagination-custom .page-link:hover {
+    text-decoration: underline;
+}
+
+.pagination-custom .page-link:focus {
+    box-shadow: none;
+}

@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
-import {
-    Button,
-    Col,
-    Container,
-    Row,
-    Pagination,
-    Alert,
-    ListGroup
-} from "react-bootstrap";
+import { Button, Col, Container, Row, Alert, ListGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { fetchAuthors, deleteAuthor } from "./requests.js";
+import ConfirmModal from "./ConfirmModal";
+import PaginationComponent from "./PaginationComponent";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -19,6 +13,8 @@ const Dashboard = () => {
         return savedPage ? JSON.parse(savedPage) : 1;
     });
     const [error, setError] = useState(null);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [authorToDelete, setAuthorToDelete] = useState(null);
     const authorsPerPage = 3;
     const navigate = useNavigate();
 
@@ -26,31 +22,26 @@ const Dashboard = () => {
         const getAuthors = async () => {
             try {
                 const data = await fetchAuthors();
-                console.log('Fetched authors:', data);
                 setAuthors(data);
             } catch (error) {
                 setError("Failed to fetch authors. Please try again later.");
-                console.error("Error fetching authors:", error.message);
             }
         };
         getAuthors();
     }, []);
 
-    const handleDelete = async (authorId) => {
-        try {
-            await deleteAuthor(authorId);
-            setAuthors((prevAuthors) =>
-                prevAuthors.filter((author) => author.id !== authorId)
-            );
-            console.log(`Author with id ${authorId} deleted successfully`);
-        } catch (error) {
-            setError("Failed to delete author. Please try again later.");
-            console.error("Error deleting author:", error.message);
-        }
+    const handleDelete = async () => {
+        await deleteAuthor(authorToDelete.id);
+        setAuthors((prevAuthors) => prevAuthors.filter((author) => author.id !== authorToDelete.id));
     };
 
     const handleUpdate = (authorId) => {
         navigate(`/author/${authorId}`);
+    };
+
+    const handleShowDeleteModal = (author) => {
+        setAuthorToDelete(author);
+        setShowDeleteModal(true);
     };
 
     const indexOfLastAuthor = currentPage * authorsPerPage;
@@ -75,7 +66,8 @@ const Dashboard = () => {
                                     <ListGroup.Item key={author.id} className="author-item">
                                         <Row className="align-items-center">
                                             <Col>
-                                                {index + 1 + (currentPage - 1) * authorsPerPage}. <span className="author-name">{author.firstName} {author.lastName}</span>
+                                                {index + 1 + (currentPage - 1) * authorsPerPage}.{" "}
+                                                <span className="author-name">{author.firstName} {author.lastName}</span>
                                             </Col>
                                             <Col className="text-right">
                                                 <Button
@@ -87,8 +79,8 @@ const Dashboard = () => {
                                                 </Button>
                                                 <Button
                                                     variant="outline-danger"
-                                                    onClick={() => handleDelete(author.id)}
-                                                    className="mx-1"
+                                                    className="delete-button mx-1"
+                                                    onClick={() => handleShowDeleteModal(author)}
                                                 >
                                                     Delete
                                                 </Button>
@@ -102,24 +94,22 @@ const Dashboard = () => {
                                 </ListGroup.Item>
                             )}
                         </ListGroup>
-                        <div className="d-flex justify-content-center mt-3">
-                            <Pagination className="pagination-custom">
-                                {[
-                                    ...Array(Math.ceil(authors.length / authorsPerPage)).keys(),
-                                ].map((number) => (
-                                    <Pagination.Item
-                                        key={number + 1}
-                                        onClick={() => paginate(number + 1)}
-                                        active={number + 1 === currentPage}
-                                    >
-                                        {number + 1}
-                                    </Pagination.Item>
-                                ))}
-                            </Pagination>
-                        </div>
+                        <PaginationComponent
+                            currentPage={currentPage}
+                            totalItems={authors.length}
+                            itemsPerPage={authorsPerPage}
+                            paginate={paginate}
+                        />
                     </Col>
                 </Row>
             </Container>
+
+            <ConfirmModal
+                show={showDeleteModal}
+                onClose={() => setShowDeleteModal(false)}
+                onConfirm={handleDelete}
+                author={authorToDelete}
+            />
         </>
     );
 };

@@ -28,7 +28,6 @@ import SearchParamsConfigurator from '../components/SearchParamsConfigurator';
 import Dashboard from "../../pages/default/dashboard/Dashboard";
 import Postauthor from "../../pages/default/author/Postauthor";
 import Updateauthor from "../../pages/default/author/Updateauthor";
-import Nomatch from "../../pages/default/noMatch/Nomatch";
 
 function App() {
     const dispatch = useDispatch();
