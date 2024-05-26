@@ -73,7 +73,7 @@ const Dashboard = () => {
                                                 <Button
                                                     variant="outline-secondary"
                                                     onClick={() => handleUpdate(author.id)}
-                                                    className="mx-1"
+                                                    className="mx-2"
                                                 >
                                                     Update
                                                 </Button>

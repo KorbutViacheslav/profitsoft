@@ -34,6 +34,7 @@ import java.util.Map;
 @RestController
 @AllArgsConstructor
 @RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@CrossOrigin("*")
 public class BookControllerImpl implements BookController {
 
     private final BookService bookService;
@@ -111,6 +112,11 @@ public class BookControllerImpl implements BookController {
     public BookStatisticResponse uploadBooks(@RequestPart("file") MultipartFile file) {
         List<BookCreateDTO> bookCreateDTOs = BookCreateJsonFileParser.parseJsonFile(file);
         return bookService.uploadBooks(bookCreateDTOs);
+    }
+    @GetMapping("/books")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BookReadDTO> getAllBooks(){
+        return bookService.findAllBooks();
     }
 
 }

@@ -31,6 +31,12 @@
 .mx-1 {
     margin-left: 5px;
     margin-right: 5px;
+    background: #dc3545;
+}
+.mx-2 {
+    margin-left: 5px;
+    margin-right: 5px;
+    background: yellow;
 }
 
 .d-flex {

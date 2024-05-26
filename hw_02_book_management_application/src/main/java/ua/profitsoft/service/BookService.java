@@ -68,4 +68,6 @@ public interface BookService {
      * along with the reasons for failure
      */
     BookStatisticResponse uploadBooks(List<BookCreateDTO> bookCreateDTOs);
+
+    List<BookReadDTO> findAllBooks();
 }

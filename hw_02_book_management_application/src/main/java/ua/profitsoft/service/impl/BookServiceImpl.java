@@ -148,6 +148,13 @@ public class BookServiceImpl implements BookService {
         return new BookStatisticResponse(successfullyImported, failedImports, failureReasons);
     }
 
+    @Override
+    public List<BookReadDTO> findAllBooks() {
+        List<Book> list = bookRepository.findAll();
+        List<BookReadDTO> lr = bookMapper.toBookReadDTOList(list);
+        return lr;
+    }
+
     /**
      * Validates the provided {@link BookCreateDTO} object.
      * This method is used in {@link #uploadBooks(List)}.
