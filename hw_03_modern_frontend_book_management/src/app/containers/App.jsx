@@ -118,10 +118,9 @@ function App() {
                                             path={`${pageURLs[pages.login]}`}
                                         />
                                         {/* Add routes for other pages */}
-                                        <Route path="/" element={<Dashboard/>}/>
+                                        <Route path={`${pageURLs[pages.defaultPage]}`} element={<Dashboard/>}/>
                                         <Route path="/author" element={<Postauthor/>}/>
                                         <Route path="/author/:id" element={<Updateauthor/>}/>
-                                        <Route path="*" element={<Nomatch/>}/>
                                         <Route
                                             element={(
                                                 <MissedPage

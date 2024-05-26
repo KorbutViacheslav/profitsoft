@@ -34,7 +34,7 @@ const Postauthor = () => {
             console.log("Author created: ", data);
             navigate("/");
         } catch (error) {
-            console.log("Error creating author: ", error.massage);
+            console.log("Error creating author: ", error.message);
         }
     };
 
@@ -70,4 +70,5 @@ const Postauthor = () => {
         </>
     );
 };
+
 export default Postauthor;

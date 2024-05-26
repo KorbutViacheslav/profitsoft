@@ -4,9 +4,9 @@ import {
     Col,
     Container,
     Row,
-    Table,
     Pagination,
     Alert,
+    ListGroup
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { fetchAuthors, deleteAuthor } from "./requests.js";
@@ -69,58 +69,54 @@ const Dashboard = () => {
                     <Col>
                         <h1 className="text-center">Authors</h1>
                         {error && <Alert variant="danger">{error}</Alert>}
-                        <Table striped bordered hover responsive>
-                            <thead>
-                            <tr>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th className="action-column">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                        <ListGroup>
                             {currentAuthors.length > 0 ? (
-                                currentAuthors.map((author) => (
-                                    <tr key={author.id}>
-                                        <td>{author.firstName}</td>
-                                        <td>{author.lastName}</td>
-                                        <td>
-                                            <Button
-                                                variant="outline-secondary"
-                                                onClick={() => handleUpdate(author.id)}
-                                            >
-                                                Update
-                                            </Button>{" "}
-                                            <Button
-                                                variant="outline-danger"
-                                                onClick={() => handleDelete(author.id)}
-                                            >
-                                                Delete
-                                            </Button>
-                                        </td>
-                                    </tr>
+                                currentAuthors.map((author, index) => (
+                                    <ListGroup.Item key={author.id} className="author-item">
+                                        <Row className="align-items-center">
+                                            <Col>
+                                                {index + 1 + (currentPage - 1) * authorsPerPage}. <span className="author-name">{author.firstName} {author.lastName}</span>
+                                            </Col>
+                                            <Col className="text-right">
+                                                <Button
+                                                    variant="outline-secondary"
+                                                    onClick={() => handleUpdate(author.id)}
+                                                    className="mx-1"
+                                                >
+                                                    Update
+                                                </Button>
+                                                <Button
+                                                    variant="outline-danger"
+                                                    onClick={() => handleDelete(author.id)}
+                                                    className="mx-1"
+                                                >
+                                                    Delete
+                                                </Button>
+                                            </Col>
+                                        </Row>
+                                    </ListGroup.Item>
                                 ))
                             ) : (
-                                <tr>
-                                    <td colSpan="3" className="text-center">
-                                        No authors found.
-                                    </td>
-                                </tr>
+                                <ListGroup.Item className="text-center">
+                                    No authors found.
+                                </ListGroup.Item>
                             )}
-                            </tbody>
-                        </Table>
-                        <Pagination>
-                            {[
-                                ...Array(Math.ceil(authors.length / authorsPerPage)).keys(),
-                            ].map((number) => (
-                                <Pagination.Item
-                                    key={number + 1}
-                                    onClick={() => paginate(number + 1)}
-                                    active={number + 1 === currentPage}
-                                >
-                                    {number + 1}
-                                </Pagination.Item>
-                            ))}
-                        </Pagination>
+                        </ListGroup>
+                        <div className="d-flex justify-content-center mt-3">
+                            <Pagination className="pagination-custom">
+                                {[
+                                    ...Array(Math.ceil(authors.length / authorsPerPage)).keys(),
+                                ].map((number) => (
+                                    <Pagination.Item
+                                        key={number + 1}
+                                        onClick={() => paginate(number + 1)}
+                                        active={number + 1 === currentPage}
+                                    >
+                                        {number + 1}
+                                    </Pagination.Item>
+                                ))}
+                            </Pagination>
+                        </div>
                     </Col>
                 </Row>
             </Container>
