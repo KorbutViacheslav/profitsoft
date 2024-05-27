@@ -1,4 +1,4 @@
-.author-item {
+.book-item {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border: 1px solid #ddd;
@@ -8,19 +8,19 @@
     position: relative;
 }
 
-.author-item:hover {
+.book-item:hover {
     background-color: #f0f8ff;
 }
 
-.author-item .delete-button {
+.book-item .delete-button {
     display: none;
 }
 
-.author-item:hover .delete-button {
+.book-item:hover .delete-button {
     display: inline-block;
 }
 
-.author-name {
+.book-title {
     font-weight: bold;
 }
 

@@ -1,52 +1,52 @@
-import { useEffect, useState } from "react";
-import { Button, Col, Container, Row, Alert, ListGroup } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { fetchAuthors, deleteAuthor } from "./requests.js";
+import {useEffect, useState} from "react";
+import {Button, Col, Container, Row, Alert, ListGroup} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
+import {fetchBooks, deleteBook} from "./requests.js";
 import ConfirmModal from "./ConfirmModal";
 import PaginationComponent from "./PaginationComponent";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-    const [authors, setAuthors] = useState([]);
+    const [books, setBooks] = useState([]);
     const [currentPage, setCurrentPage] = useState(() => {
         const savedPage = localStorage.getItem("currentPage");
         return savedPage ? JSON.parse(savedPage) : 1;
     });
     const [error, setError] = useState(null);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
-    const [authorToDelete, setAuthorToDelete] = useState(null);
-    const authorsPerPage = 3;
+    const [bookToDelete, setBookToDelete] = useState(null);
+    const booksPerPage = 3;
     const navigate = useNavigate();
 
     useEffect(() => {
-        const getAuthors = async () => {
+        const getBooks = async () => {
             try {
-                const data = await fetchAuthors();
-                setAuthors(data);
+                const data = await fetchBooks();
+                setBooks(data);
             } catch (error) {
-                setError("Failed to fetch authors. Please try again later.");
+                setError("Failed to fetch books. Please try again later.");
             }
         };
-        getAuthors();
+        getBooks();
     }, []);
 
     const handleDelete = async () => {
-        await deleteAuthor(authorToDelete.id);
-        setAuthors((prevAuthors) => prevAuthors.filter((author) => author.id !== authorToDelete.id));
+        await deleteBook(bookToDelete.id);
+        setBooks((prevBooks) => prevBooks.filter((book) => book.id !== bookToDelete.id));
     };
 
-    const handleUpdate = (authorId) => {
-        navigate(`/author/${authorId}`);
+    const handleUpdate = (bookId) => {
+        navigate(`/book/${bookId}`);
     };
 
-    const handleShowDeleteModal = (author) => {
-        setAuthorToDelete(author);
+    const handleShowDeleteModal = (book) => {
+        setBookToDelete(book);
         setShowDeleteModal(true);
     };
 
-    const indexOfLastAuthor = currentPage * authorsPerPage;
-    const indexOfFirstAuthor = indexOfLastAuthor - authorsPerPage;
-    const currentAuthors = authors.slice(indexOfFirstAuthor, indexOfLastAuthor);
+    const indexOfLastBook = currentPage * booksPerPage;
+    const indexOfFirstBook = indexOfLastBook - booksPerPage;
+    const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -58,21 +58,26 @@ const Dashboard = () => {
             <Container className="mt-5">
                 <Row>
                     <Col>
-                        <h1 className="text-center">Authors</h1>
+                        <h1 className="text-center">Books</h1>
                         {error && <Alert variant="danger">{error}</Alert>}
                         <ListGroup>
-                            {currentAuthors.length > 0 ? (
-                                currentAuthors.map((author, index) => (
-                                    <ListGroup.Item key={author.id} className="author-item">
+                            {currentBooks.length > 0 ? (
+                                currentBooks.map((book, index) => (
+                                    <ListGroup.Item key={book.id} className="book-item">
                                         <Row className="align-items-center">
                                             <Col>
-                                                {index + 1 + (currentPage - 1) * authorsPerPage}.{" "}
-                                                <span className="author-name">{author.firstName} {author.lastName}</span>
+                                                {index + 1 + (currentPage - 1) * booksPerPage}.{" "}
+                                                <span className="book-title">Title: {book.title}
+                                                    <div>Publish year: {book.yearPublished}</div>
+                                                        <div>Genres: {book.genres.map((genre, index) => (
+                                                                <span key={index}>{genre}{index === book.genres.length - 1 ? "" : ", "}</span>))}
+                                                        </div>
+                                                </span>
                                             </Col>
                                             <Col className="text-right">
                                                 <Button
                                                     variant="outline-secondary"
-                                                    onClick={() => handleUpdate(author.id)}
+                                                    onClick={() => handleUpdate(book.id)}
                                                     className="mx-2"
                                                 >
                                                     Update
@@ -80,7 +85,7 @@ const Dashboard = () => {
                                                 <Button
                                                     variant="outline-danger"
                                                     className="delete-button mx-1"
-                                                    onClick={() => handleShowDeleteModal(author)}
+                                                    onClick={() => handleShowDeleteModal(book)}
                                                 >
                                                     Delete
                                                 </Button>
@@ -90,14 +95,14 @@ const Dashboard = () => {
                                 ))
                             ) : (
                                 <ListGroup.Item className="text-center">
-                                    No authors found.
+                                    No books found.
                                 </ListGroup.Item>
                             )}
                         </ListGroup>
                         <PaginationComponent
                             currentPage={currentPage}
-                            totalItems={authors.length}
-                            itemsPerPage={authorsPerPage}
+                            totalItems={books.length}
+                            itemsPerPage={booksPerPage}
                             paginate={paginate}
                         />
                     </Col>
@@ -108,7 +113,7 @@ const Dashboard = () => {
                 show={showDeleteModal}
                 onClose={() => setShowDeleteModal(false)}
                 onConfirm={handleDelete}
-                author={authorToDelete}
+                book={bookToDelete}
             />
         </>
     );

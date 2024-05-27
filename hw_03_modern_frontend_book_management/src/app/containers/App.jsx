@@ -26,8 +26,8 @@ import IntlProvider from '../components/IntlProvider';
 import MissedPage from '../components/MissedPage';
 import SearchParamsConfigurator from '../components/SearchParamsConfigurator';
 import Dashboard from "../../pages/default/dashboard/Dashboard";
-import Postauthor from "../../pages/default/author/Postauthor";
-import Updateauthor from "../../pages/default/author/Updateauthor";
+import UpdateBook from "../../pages/default/book/UpdateBook";
+import PostBook from "../../pages/default/book/PostBook";
 
 function App() {
     const dispatch = useDispatch();
@@ -116,10 +116,9 @@ function App() {
                                             )}
                                             path={`${pageURLs[pages.login]}`}
                                         />
-                                        {/* Add routes for other pages */}
                                         <Route path={`${pageURLs[pages.defaultPage]}`} element={<Dashboard/>}/>
-                                        <Route path="/author" element={<Postauthor/>}/>
-                                        <Route path="/author/:id" element={<Updateauthor/>}/>
+                                        <Route path="/book" element={<PostBook/>}/>
+                                        <Route path="/book/:id" element={<UpdateBook/>}/>
                                         <Route
                                             element={(
                                                 <MissedPage

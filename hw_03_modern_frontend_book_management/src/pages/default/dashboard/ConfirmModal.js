@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./ConfirmModal.css";
 
-const ConfirmModal = ({ show, onClose, onConfirm, author }) => {
+const ConfirmModal = ({ show, onClose, onConfirm, book }) => {
     const [status, setStatus] = useState(null);
 
     const handleConfirm = async () => {
@@ -37,12 +37,12 @@ const ConfirmModal = ({ show, onClose, onConfirm, author }) => {
                 </div>
                 <div className="modal-body">
                     {status === "success" ? (
-                        <p className="success-message">Author "{author?.firstName} {author?.lastName}" deleted successfully</p>
+                        <p className="success-message">Book "{book?.title}" deleted successfully</p>
                     ) : status === "error" ? (
-                        <p className="error-message">Failed to delete author. Please try again later.</p>
+                        <p className="error-message">Failed to delete book. Please try again later.</p>
                     ) : (
                         <p>
-                            Are you sure you want to delete author "{author?.firstName} {author?.lastName}"?
+                            Are you sure you want to delete book "{book?.title}"?
                         </p>
                     )}
                 </div>

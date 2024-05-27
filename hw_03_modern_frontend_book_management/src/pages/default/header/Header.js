@@ -10,14 +10,14 @@ const Header = () => {
         <Navbar className="custom-navbar" variant="dark">
             <Container className="custom-container">
                 <Navbar.Brand className="custom-brand">
-                    <strong>Author Management System</strong>
+                    <strong>Books Management System</strong>
                 </Navbar.Brand>
                 <Nav className="custom-nav">
                     <Nav.Link as={Link} to="/" className="custom-link">
-                        Authors
+                        Books
                     </Nav.Link>
-                    <Nav.Link as={Link} to="/author" className="custom-link">
-                        Post Author
+                    <Nav.Link as={Link} to="/book" className="custom-link">
+                        Post Book
                     </Nav.Link>
                 </Nav>
             </Container>
