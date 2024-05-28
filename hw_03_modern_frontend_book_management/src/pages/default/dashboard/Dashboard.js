@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Row, Alert, ListGroup } from "react-bootstrap";
+import { Col, Container, Row, Alert, ListGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { fetchBooks, deleteBook } from "./requests";
 import ConfirmModal from "./ConfirmModal";
 import PaginationComponent from "./PaginationComponent";
 import "./Dashboard.css";
+import Button from "react-bootstrap/Button";
 
 const Dashboard = () => {
     const [books, setBooks] = useState([]);
@@ -33,10 +34,6 @@ const Dashboard = () => {
     const handleDelete = async () => {
         await deleteBook(bookToDelete.id);
         setBooks((prevBooks) => prevBooks.filter((book) => book.id !== bookToDelete.id));
-    };
-
-    const handleUpdate = (bookId) => {
-        navigate(`/book/${bookId}`);
     };
 
     const handleShowDeleteModal = (book) => {
@@ -74,26 +71,16 @@ const Dashboard = () => {
                                                 <span className="book-title">
                                                     Title: {book.title}
                                                     <div>Publish year: {book.yearPublished}</div>
-                                                    <div>
-                                                        Author: {book.author ? `${book.author.firstName} ${book.author.lastName}` : "N/A"}
-                                                    </div>
-                                                    <div>
-                                                        Genres: {book.genres && book.genres.length > 0 ? book.genres.join(", ") : "N/A"}
-                                                    </div>
                                                 </span>
                                             </Col>
                                             <Col className="text-right">
                                                 <Button
-                                                    variant="outline-secondary"
-                                                    onClick={() => handleUpdate(book.id)}
-                                                    className="mx-2"
-                                                >
-                                                    Update
-                                                </Button>
-                                                <Button
                                                     variant="outline-danger"
                                                     className="delete-button mx-1"
-                                                    onClick={() => handleShowDeleteModal(book)}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        handleShowDeleteModal(book);
+                                                    }}
                                                 >
                                                     Delete
                                                 </Button>

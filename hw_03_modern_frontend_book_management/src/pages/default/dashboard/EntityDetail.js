@@ -16,9 +16,11 @@ const EntityDetail = () => {
         },
         genres: [],
     });
+    const [initialBook, setInitialBook] = useState(null);
     const [isEditMode, setIsEditMode] = useState(!bookId);
     const [message, setMessage] = useState(null);
     const [error, setError] = useState(null);
+    const [validationErrors, setValidationErrors] = useState({});
 
     useEffect(() => {
         const getBook = async () => {
@@ -26,6 +28,7 @@ const EntityDetail = () => {
                 try {
                     const data = await fetchBook(bookId);
                     setBook(data);
+                    setInitialBook(data); // Save the initial book data
                 } catch (error) {
                     setError("Failed to fetch book details.");
                 }
@@ -45,7 +48,21 @@ const EntityDetail = () => {
         }
     };
 
+    const validateFields = () => {
+        const errors = {};
+        if (!book.title) errors.title = "Title is required.";
+        if (!book.yearPublished || isNaN(book.yearPublished)) errors.yearPublished = "Valid year is required.";
+        if (!book.author.firstName) errors.firstName = "Author's first name is required.";
+        if (!book.author.lastName) errors.lastName = "Author's last name is required.";
+        if (!book.genres.length) errors.genres = "At least one genre is required.";
+
+        setValidationErrors(errors);
+        return Object.keys(errors).length === 0;
+    };
+
     const handleSave = async () => {
+        if (!validateFields()) return;
+
         try {
             if (bookId) {
                 await updateBook(bookId, book);
@@ -63,6 +80,7 @@ const EntityDetail = () => {
 
     const handleCancel = () => {
         if (bookId) {
+            setBook(initialBook);
             setIsEditMode(false);
             setMessage(null);
             setError(null);
@@ -91,12 +109,18 @@ const EntityDetail = () => {
                     <Form.Group controlId="formTitle">
                         <Form.Label>Title</Form.Label>
                         {isEditMode ? (
-                            <Form.Control
-                                type="text"
-                                name="title"
-                                value={book.title}
-                                onChange={handleInputChange}
-                            />
+                            <>
+                                <Form.Control
+                                    type="text"
+                                    name="title"
+                                    value={book.title}
+                                    onChange={handleInputChange}
+                                    isInvalid={!!validationErrors.title}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    {validationErrors.title}
+                                </Form.Control.Feedback>
+                            </>
                         ) : (
                             <p className="form-control-plaintext">{book.title}</p>
                         )}
@@ -104,12 +128,18 @@ const EntityDetail = () => {
                     <Form.Group controlId="formYearPublished">
                         <Form.Label>Year Published</Form.Label>
                         {isEditMode ? (
-                            <Form.Control
-                                type="text"
-                                name="yearPublished"
-                                value={book.yearPublished}
-                                onChange={handleInputChange}
-                            />
+                            <>
+                                <Form.Control
+                                    type="text"
+                                    name="yearPublished"
+                                    value={book.yearPublished}
+                                    onChange={handleInputChange}
+                                    isInvalid={!!validationErrors.yearPublished}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    {validationErrors.yearPublished}
+                                </Form.Control.Feedback>
+                            </>
                         ) : (
                             <p className="form-control-plaintext">{book.yearPublished}</p>
                         )}
@@ -117,12 +147,18 @@ const EntityDetail = () => {
                     <Form.Group controlId="formFirstName">
                         <Form.Label>Author First Name</Form.Label>
                         {isEditMode ? (
-                            <Form.Control
-                                type="text"
-                                name="firstName"
-                                value={book.author.firstName}
-                                onChange={handleInputChange}
-                            />
+                            <>
+                                <Form.Control
+                                    type="text"
+                                    name="firstName"
+                                    value={book.author.firstName}
+                                    onChange={handleInputChange}
+                                    isInvalid={!!validationErrors.firstName}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    {validationErrors.firstName}
+                                </Form.Control.Feedback>
+                            </>
                         ) : (
                             <p className="form-control-plaintext">{book.author.firstName}</p>
                         )}
@@ -130,12 +166,18 @@ const EntityDetail = () => {
                     <Form.Group controlId="formLastName">
                         <Form.Label>Author Last Name</Form.Label>
                         {isEditMode ? (
-                            <Form.Control
-                                type="text"
-                                name="lastName"
-                                value={book.author.lastName}
-                                onChange={handleInputChange}
-                            />
+                            <>
+                                <Form.Control
+                                    type="text"
+                                    name="lastName"
+                                    value={book.author.lastName}
+                                    onChange={handleInputChange}
+                                    isInvalid={!!validationErrors.lastName}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    {validationErrors.lastName}
+                                </Form.Control.Feedback>
+                            </>
                         ) : (
                             <p className="form-control-plaintext">{book.author.lastName}</p>
                         )}
@@ -143,12 +185,18 @@ const EntityDetail = () => {
                     <Form.Group controlId="formGenres">
                         <Form.Label>Genres</Form.Label>
                         {isEditMode ? (
-                            <Form.Control
-                                type="text"
-                                name="genres"
-                                value={book.genres.join(", ")}
-                                onChange={handleInputChange}
-                            />
+                            <>
+                                <Form.Control
+                                    type="text"
+                                    name="genres"
+                                    value={book.genres.join(", ")}
+                                    onChange={handleInputChange}
+                                    isInvalid={!!validationErrors.genres}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    {validationErrors.genres}
+                                </Form.Control.Feedback>
+                            </>
                         ) : (
                             <p className="form-control-plaintext">{book.genres.join(", ")}</p>
                         )}

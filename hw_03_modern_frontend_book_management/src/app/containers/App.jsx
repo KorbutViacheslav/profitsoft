@@ -119,7 +119,6 @@ function App() {
                                         <Route path={`${pageURLs[pages.defaultPage]}`} element={<Dashboard/>}/>
                                         <Route path="/book/:bookId" element={<EntityDetail />} />
                                         <Route path="/book" element={<EntityDetail />} />
-
                                         <Route
                                             element={(
                                                 <MissedPage
