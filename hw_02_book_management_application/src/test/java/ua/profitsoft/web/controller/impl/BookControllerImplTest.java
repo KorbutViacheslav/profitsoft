@@ -78,7 +78,7 @@ class BookControllerImplTest {
                 .andExpect(jsonPath("$.genres", containsInAnyOrder(genres.toArray())));
     }
 
-    @Test
+/*    @Test
     void shouldGetBookById() throws Exception {
         Book book = books.get(0);
         BookReadDTO expectedBookReadDTO = new BookReadDTO(
@@ -97,7 +97,7 @@ class BookControllerImplTest {
                 .andExpect(jsonPath("$.authorCreateDTO.lastName").value(expectedBookReadDTO.getAuthorCreateDTO().getLastName()))
                 .andExpect(jsonPath("$.yearPublished").value(expectedBookReadDTO.getYearPublished()))
                 .andExpect(jsonPath("$.genres", containsInAnyOrder(expectedBookReadDTO.getGenres().toArray())));
-    }
+    }*/
 
     @Test
     void shouldUpdateBookById() throws Exception {

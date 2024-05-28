@@ -1,0 +1,65 @@
+.entity-detail {
+    /* Container styling */
+    .container {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* Title styling */
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Form styling */
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-control,
+    .form-control:focus {
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .form-control-plaintext {
+        padding: 0.5rem 1rem;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        background-color: #f8f9fa;
+    }
+
+    /* Button styling */
+    .btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+    }
+
+    .btn-secondary {
+        background-color: #ced4da;
+        border-color: #ced4da;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    /* Edit mode styling */
+    .edit-mode {
+        .form-control {
+            background-color: #f8f9fa;
+        }
+    }
+
+    /* Alert styling */
+    .alert {
+        margin-bottom: 1rem;
+    }
+}

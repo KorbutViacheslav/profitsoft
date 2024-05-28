@@ -26,8 +26,8 @@ import IntlProvider from '../components/IntlProvider';
 import MissedPage from '../components/MissedPage';
 import SearchParamsConfigurator from '../components/SearchParamsConfigurator';
 import Dashboard from "../../pages/default/dashboard/Dashboard";
-import UpdateBook from "../../pages/default/book/UpdateBook";
-import PostBook from "../../pages/default/book/PostBook";
+
+import EntityDetail from "../../pages/default/dashboard/EntityDetail";
 
 function App() {
     const dispatch = useDispatch();
@@ -117,8 +117,9 @@ function App() {
                                             path={`${pageURLs[pages.login]}`}
                                         />
                                         <Route path={`${pageURLs[pages.defaultPage]}`} element={<Dashboard/>}/>
-                                        <Route path="/book" element={<PostBook/>}/>
-                                        <Route path="/book/:id" element={<UpdateBook/>}/>
+                                        <Route path="/book/:bookId" element={<EntityDetail />} />
+                                        <Route path="/book" element={<EntityDetail />} />
+
                                         <Route
                                             element={(
                                                 <MissedPage

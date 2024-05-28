@@ -33,7 +33,7 @@ public class BookReadDTO {
     public String title;
 
     @NotNull
-    public AuthorCreateDTO authorCreateDTO;
+    public AuthorCreateDTO author;
 
     @Digits(integer = 4, fraction = 0, message = "Invalid format. Only digits are allowed.")
     @Positive(message = "Year published must be a positive number.")

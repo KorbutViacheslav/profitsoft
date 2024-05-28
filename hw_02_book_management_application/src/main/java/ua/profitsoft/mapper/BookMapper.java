@@ -22,11 +22,11 @@ import java.util.List;
 public interface BookMapper {
     BookMapper INSTANCE = Mappers.getMapper(BookMapper.class);
 
-    @Mapping(source = "author", target = "authorCreateDTO")
+    //@Mapping(source = "author", target = "authorCreateDTO")
     BookReadDTO toBookReadDTO(Book book);
 
     @Mapping(target = "id", ignore = true)
-    @Mapping(source = "authorCreateDTO", target = "author")
+    //@Mapping(source = "authorCreateDTO", target = "author")
     Book toBook(BookReadDTO bookReadDTO);
 
     List<BookReadDTO> toBookReadDTOList(List<Book> books);

@@ -1,7 +1,7 @@
-import {useEffect, useState} from "react";
-import {Button, Col, Container, Row, Alert, ListGroup} from "react-bootstrap";
-import {useNavigate} from "react-router-dom";
-import {fetchBooks, deleteBook} from "./requests.js";
+import { useEffect, useState } from "react";
+import { Button, Col, Container, Row, Alert, ListGroup } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { fetchBooks, deleteBook } from "./requests";
 import ConfirmModal from "./ConfirmModal";
 import PaginationComponent from "./PaginationComponent";
 import "./Dashboard.css";
@@ -53,6 +53,10 @@ const Dashboard = () => {
         localStorage.setItem("currentPage", JSON.stringify(pageNumber));
     };
 
+    const handleNavigateToDetail = (bookId) => {
+        navigate(`/book/${bookId}`);
+    };
+
     return (
         <>
             <Container className="mt-5">
@@ -63,15 +67,19 @@ const Dashboard = () => {
                         <ListGroup>
                             {currentBooks.length > 0 ? (
                                 currentBooks.map((book, index) => (
-                                    <ListGroup.Item key={book.id} className="book-item">
+                                    <ListGroup.Item key={book.id} className="book-item" onClick={() => handleNavigateToDetail(book.id)}>
                                         <Row className="align-items-center">
                                             <Col>
                                                 {index + 1 + (currentPage - 1) * booksPerPage}.{" "}
-                                                <span className="book-title">Title: {book.title}
+                                                <span className="book-title">
+                                                    Title: {book.title}
                                                     <div>Publish year: {book.yearPublished}</div>
-                                                        <div>Genres: {book.genres.map((genre, index) => (
-                                                                <span key={index}>{genre}{index === book.genres.length - 1 ? "" : ", "}</span>))}
-                                                        </div>
+                                                    <div>
+                                                        Author: {book.author ? `${book.author.firstName} ${book.author.lastName}` : "N/A"}
+                                                    </div>
+                                                    <div>
+                                                        Genres: {book.genres && book.genres.length > 0 ? book.genres.join(", ") : "N/A"}
+                                                    </div>
                                                 </span>
                                             </Col>
                                             <Col className="text-right">
