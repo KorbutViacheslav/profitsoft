@@ -107,6 +107,13 @@ public class BookServiceImpl implements BookService {
         return bookPage.map(bookMapper::toBookCreateDTO);
     }
 
+    public List<BookCreateDTO> findAllBookByFilterWithoutPagination(BookFilterRequest bookFilterRequest){
+        Specification<Book> specification = new BookSpecification(bookFilterRequest);
+        List<Book> list = bookRepository.findAll(specification);
+        List<BookCreateDTO> b = list.stream().map(bookMapper::toBookCreateDTO).toList();
+        return b;
+    }
+
     /**
      * {@inheritDoc}
      */

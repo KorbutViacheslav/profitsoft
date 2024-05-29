@@ -70,4 +70,5 @@ public interface BookService {
     BookStatisticResponse uploadBooks(List<BookCreateDTO> bookCreateDTOs);
 
     List<BookReadDTO> findAllBooks();
+    List<BookCreateDTO> findAllBookByFilterWithoutPagination(BookFilterRequest bookFilterRequest);
 }

@@ -89,6 +89,12 @@ public class BookControllerImpl implements BookController {
         return bookService.findAllBooksByFilter(request);
     }
 
+    @PostMapping("/book/filter")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BookCreateDTO> bookFilter(@RequestBody BookFilterRequest request) {
+        return bookService.findAllBookByFilterWithoutPagination(request);
+    }
+
     /**
      * {@inheritDoc}
      */
