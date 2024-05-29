@@ -1,28 +1,32 @@
-import React, { useState } from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Modal, Button, Form } from "react-bootstrap";
 import "./FilterModal.css";
 
 const FilterModal = ({ show, onHide, onApply }) => {
     const [filterData, setFilterData] = useState({
-        title: '',
-        yearPublished: '',
-        authorFirstName: '',
-        authorLastName: ''
+        title: "",
+        yearPublish: "",
+        authorFirstName: "",
+        authorLastName: ""
     });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFilterData({ ...filterData, [name]: value });
+        setFilterData({
+            ...filterData,
+            [name]: value
+        });
     };
 
-    const handleApply = () => {
+    const handleSubmit = () => {
         onApply(filterData);
     };
 
     return (
         <Modal show={show} onHide={onHide} centered>
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title>Filter Books</Modal.Title>
+                <button className="modal-close-button" onClick={onHide}>&times;</button>
             </Modal.Header>
             <Modal.Body>
                 <Form>
@@ -33,19 +37,19 @@ const FilterModal = ({ show, onHide, onApply }) => {
                             name="title"
                             value={filterData.title}
                             onChange={handleChange}
-                            placeholder="Enter title"
                         />
                     </Form.Group>
-                    <Form.Group controlId="formYearPublished">
-                        <Form.Label>Year Published</Form.Label>
+
+                    <Form.Group controlId="formYearPublish">
+                        <Form.Label>Year Publish</Form.Label>
                         <Form.Control
                             type="number"
-                            name="yearPublished"
-                            value={filterData.yearPublished}
+                            name="yearPublish"
+                            value={filterData.yearPublish}
                             onChange={handleChange}
-                            placeholder="Enter year"
                         />
                     </Form.Group>
+
                     <Form.Group controlId="formAuthorFirstName">
                         <Form.Label>Author First Name</Form.Label>
                         <Form.Control
@@ -53,9 +57,9 @@ const FilterModal = ({ show, onHide, onApply }) => {
                             name="authorFirstName"
                             value={filterData.authorFirstName}
                             onChange={handleChange}
-                            placeholder="Enter author's first name"
                         />
                     </Form.Group>
+
                     <Form.Group controlId="formAuthorLastName">
                         <Form.Label>Author Last Name</Form.Label>
                         <Form.Control
@@ -63,16 +67,15 @@ const FilterModal = ({ show, onHide, onApply }) => {
                             name="authorLastName"
                             value={filterData.authorLastName}
                             onChange={handleChange}
-                            placeholder="Enter author's last name"
                         />
                     </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={onHide}>
-                    Close
+                    Cancel
                 </Button>
-                <Button variant="primary" onClick={handleApply}>
+                <Button variant="primary" onClick={handleSubmit}>
                     Apply
                 </Button>
             </Modal.Footer>

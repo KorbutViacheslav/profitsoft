@@ -1,5 +1,6 @@
 .modal-content {
     border-radius: 15px;
+    background-color: #f0f8ff;
 }
 
 .modal-header, .modal-footer {
@@ -11,6 +12,7 @@
 .modal-title {
     flex-grow: 1;
     text-align: center;
+    color: #000080;
 }
 
 .form-group {
@@ -24,4 +26,32 @@
 .btn {
     border-radius: 5px;
     padding: 0.5rem 1.5rem;
+    background-color: #4682b4;
+    color: white;
+}
+
+.modal-close-button {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #000080;
+    cursor: pointer;
+}
+
+.modal-close-button:hover {
+    color: #4682b4;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100% - 1rem);
+}
+
+.modal-content {
+    margin: 1rem;
 }
