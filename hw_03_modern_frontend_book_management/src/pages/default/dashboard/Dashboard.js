@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchBooks, deleteBook } from "./requests";
 import ConfirmModal from "./ConfirmModal";
 import PaginationComponent from "./PaginationComponent";
+import FilterModal from "./FilterModal";
 import "./Dashboard.css";
 import Button from "react-bootstrap/Button";
 
@@ -16,19 +17,34 @@ const Dashboard = () => {
     const [error, setError] = useState(null);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [bookToDelete, setBookToDelete] = useState(null);
+    const [showFilterModal, setShowFilterModal] = useState(false);
+    const [filter, setFilter] = useState(null);
+
     const booksPerPage = 3;
     const navigate = useNavigate();
 
     useEffect(() => {
         const getBooks = async () => {
             try {
-                const data = await fetchBooks();
+                const data = await fetchBooks(filter);
                 setBooks(data);
             } catch (error) {
                 setError("Failed to fetch books. Please try again later.");
             }
         };
         getBooks();
+    }, [filter]);
+
+    useEffect(() => {
+        const openFilterModalHandler = () => {
+            setShowFilterModal(true);
+        };
+
+        document.addEventListener('openFilterModal', openFilterModalHandler);
+
+        return () => {
+            document.removeEventListener('openFilterModal', openFilterModalHandler);
+        };
     }, []);
 
     const handleDelete = async () => {
@@ -39,6 +55,11 @@ const Dashboard = () => {
     const handleShowDeleteModal = (book) => {
         setBookToDelete(book);
         setShowDeleteModal(true);
+    };
+
+    const handleFilterApply = (filterData) => {
+        setFilter(filterData);
+        setShowFilterModal(false);
     };
 
     const indexOfLastBook = currentPage * booksPerPage;
@@ -109,6 +130,12 @@ const Dashboard = () => {
                 onClose={() => setShowDeleteModal(false)}
                 onConfirm={handleDelete}
                 book={bookToDelete}
+            />
+
+            <FilterModal
+                show={showFilterModal}
+                onHide={() => setShowFilterModal(false)}
+                onApply={handleFilterApply}
             />
         </>
     );

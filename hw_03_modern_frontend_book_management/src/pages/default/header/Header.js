@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -18,6 +17,9 @@ const Header = () => {
                     </Nav.Link>
                     <Nav.Link as={Link} to="/book" className="custom-link">
                         Post Book
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="#" className="custom-link" onClick={() => { document.dispatchEvent(new CustomEvent('openFilterModal')) }}>
+                        Filter
                     </Nav.Link>
                 </Nav>
             </Container>

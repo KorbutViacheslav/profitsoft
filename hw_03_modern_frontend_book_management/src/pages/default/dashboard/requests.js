@@ -1,7 +1,14 @@
 const API_BASE_URL = "http://localhost:8080/api";
 
-export const fetchBooks = async () => {
-    const response = await fetch(`${API_BASE_URL}/books`);
+export const fetchBooks = async (filter = null) => {
+    const url = filter ? `${API_BASE_URL}/book/filter` : `${API_BASE_URL}/books`;
+    const options = filter ? {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(filter)
+    } : {};
+
+    const response = await fetch(url, options);
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
