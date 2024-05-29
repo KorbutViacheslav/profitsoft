@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { fetchBook, createBook, updateBook } from "./requests.js";
+import { fetchBook, createBook, updateBook } from "../dashboard/requests.js";
 import { Button, Alert, Form, Container } from "react-bootstrap";
 import "./EntityDetail.css";
 
@@ -28,7 +28,7 @@ const EntityDetail = () => {
                 try {
                     const data = await fetchBook(bookId);
                     setBook(data);
-                    setInitialBook(data); // Save the initial book data
+                    setInitialBook(data);
                 } catch (error) {
                     setError("Failed to fetch book details.");
                 }

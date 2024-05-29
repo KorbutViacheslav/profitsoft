@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Col, Container, Row, Alert, ListGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { fetchBooks, deleteBook } from "./requests";
-import ConfirmModal from "./ConfirmModal";
-import PaginationComponent from "./PaginationComponent";
-import FilterModal from "./FilterModal";
+import ConfirmModal from "../modal/ConfirmModal";
+import PaginationComponent from "../pagination/PaginationComponent";
+import FilterModal from "../filter/FilterModal";
 import "./Dashboard.css";
 import Button from "react-bootstrap/Button";
 

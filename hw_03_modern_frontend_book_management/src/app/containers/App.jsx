@@ -27,7 +27,7 @@ import MissedPage from '../components/MissedPage';
 import SearchParamsConfigurator from '../components/SearchParamsConfigurator';
 import Dashboard from "../../pages/default/dashboard/Dashboard";
 
-import EntityDetail from "../../pages/default/dashboard/EntityDetail";
+import EntityDetail from "../../pages/default/book/EntityDetail";
 
 function App() {
     const dispatch = useDispatch();
