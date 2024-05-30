@@ -66,10 +66,10 @@ const EntityDetail = () => {
         try {
             if (bookId) {
                 await updateBook(bookId, book);
-                setMessage("Book updated successfully");
+                setMessage("Book updated successfully!");
             } else {
                 await createBook(book);
-                setMessage("Book created successfully");
+                setMessage("Book created successfully!");
             }
             setIsEditMode(false);
             setTimeout(() => setMessage(null), 3000);
