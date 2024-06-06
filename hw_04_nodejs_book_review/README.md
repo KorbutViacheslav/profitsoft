@@ -1,6 +1,6 @@
 # Node.js REST API Project. Book Review.
 * [Task issued](https://docs.google.com/document/d/1qZFp9bT4QGd_vRhRHDyIIIBxFDNO7M_i5BEe3Ad8dCk/edit?hl=ru&tab=t.0#heading=h.arwffw3rrrrx) (Only for users who have access to the internship)
-* A short video about how the application works [YouTube](https://www.youtube.com/watch?v=mrurwEEw2Tc&list=PL_j-WX8xxd2XTD49lDzcuVb7TP6jVeYf1&index=2)
+* A short video about how the application works [YouTube](https://www.youtube.com/watch?v=popOtcncZgw)
 ---
 ## Application Description
   Book Review is a REST API service built with Node.js, using TypeScript and MongoDB. 
