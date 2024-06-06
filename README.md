@@ -1,4 +1,4 @@
-# ProfITsoft FullStack Developer Internship 2024
+# ProfITSoft FullStack Developer Internship 2024
 
 ![Logo](https://github.com/KorbutViacheslav/rough-copy-profitsoft/blob/main/images/profitsoft_back.jpg?raw=true)
 
@@ -9,3 +9,5 @@ Tasks in the course of study:
 * Book Management Application: [Click](hw_02_book_management_application/README.md)
 ---
 * Modern Frontend Book Management: [Click](hw_03_modern_frontend_book_management/README.md)
+---
+* Book Review REST API: [Click](hw_04_nodejs_book_review/README.md)
