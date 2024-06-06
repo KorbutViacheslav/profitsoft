@@ -6,14 +6,14 @@
   Book Review is a REST API service built with Node.js, using TypeScript and MongoDB. 
 This service allows for the creation and management of book reviews. Reviews have the attributes: `bookId`, `message`, and `timestamp`, which indicates the time the review was created. 
 The service interacts with another server to verify the existence of a book by its `bookId`.
-
+---
 ### Features
 - **Create Reviews**: Add a new review for a book.
 - **Retrieve Reviews**: Get a list of reviews for a specific book.
 - **Count Reviews**: Get the count of reviews for specified books.
 - **Validation**: Validate input data for all API endpoints.
 - **Integration Tests**: Cover all endpoints with integration tests.
-
+---
 ### Usage
 1. **Install Dependencies**:
     ```bash
@@ -32,7 +32,7 @@ The service interacts with another server to verify the existence of a book by i
     npm start
     ```
    The server will start on `http://localhost:8081/`.
-
+---
 ### Controllers
 
 #### POST /api/review
