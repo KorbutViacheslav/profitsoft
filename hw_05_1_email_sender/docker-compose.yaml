@@ -1,0 +1,10 @@
+version: '4.3'
+services:
+  kafka:
+    image: 'bitnami/kafka:latest'
+    container_name: kafka
+
+
+  elasticsearch:
+    image: elasticsearch:8.14
+    container_name: elasticsearch
