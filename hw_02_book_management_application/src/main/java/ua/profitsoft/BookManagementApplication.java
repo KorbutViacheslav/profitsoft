@@ -5,6 +5,11 @@ import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Author: Viacheslav Korbut
+ * Date: 28.04.2024
+ */
+
 @SpringBootApplication
 @OpenAPIDefinition(info = @Info(
         title = "Book Management Application",

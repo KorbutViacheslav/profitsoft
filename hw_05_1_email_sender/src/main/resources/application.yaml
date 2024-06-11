@@ -1,3 +1,12 @@
 spring:
-  application:
-    name: email_sender
+  elasticsearch:
+    uris: http://elasticsearch:9200
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: email-service
+
+server:
+  port: 8082
+
