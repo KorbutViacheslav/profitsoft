@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Author: Viacheslav Korbut
  * Date: 11.06.2024
  */
-
 @SpringBootApplication
 public class EmailSender {
 
