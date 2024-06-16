@@ -2,6 +2,8 @@ package ua.profitsoft.web.controller.impl;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
@@ -9,8 +11,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaOperations;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import ua.profitsoft.messaging.BookReceivedMessage;
 import ua.profitsoft.util.parser.BookCreateJsonFileParser;
 import ua.profitsoft.dto.create.BookCreateDTO;
 import ua.profitsoft.dto.read.BookReadDTO;
@@ -22,6 +26,7 @@ import ua.profitsoft.writer.CSVReportGenerator;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Author: Viacheslav Korbut
@@ -32,12 +37,17 @@ import java.util.Map;
  * Implementation of the controller responsible for managing books.
  */
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin("*")
 public class BookControllerImpl implements BookController {
 
     private final BookService bookService;
+
+    private final KafkaOperations<String, BookReceivedMessage> kafkaOperations;
+
+    @Value("${kafka.topic.bookReceived}")
+    private String bookReceivedTopic;
 
     /**
      * {@inheritDoc}
@@ -46,7 +56,23 @@ public class BookControllerImpl implements BookController {
     @ResponseStatus(HttpStatus.CREATED)
     @Override
     public BookReadDTO createBook(@RequestBody @Valid BookCreateDTO bookCreateDTO) {
-        return bookService.createBook(bookCreateDTO);
+        BookReadDTO bookReadDTO = bookService.createBook(bookCreateDTO);
+        BookReceivedMessage message = toMessage(bookCreateDTO);
+        kafkaOperations.send(bookReceivedTopic, message);
+        return bookReadDTO;
+    }
+
+    private static BookReceivedMessage toMessage(BookCreateDTO bookCreateDTO) {
+        return BookReceivedMessage.builder()
+                .name(bookCreateDTO.getTitle())
+                .genre(bookCreateDTO.getGenres()
+                        .stream()
+                        .filter(genre->!genre.isEmpty())
+                        .collect(Collectors.joining(", ")))
+                .yearPublished(bookCreateDTO.getYearPublished())
+                .authorFirstName(bookCreateDTO.getAuthor().firstName)
+                .authorLastName(bookCreateDTO.getAuthor().lastName)
+                .build();
     }
 
     /**

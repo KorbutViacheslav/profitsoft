@@ -1,7 +1,7 @@
 # Spring Boot configuration
 spring:
   application:
-    name: rough-copy-spring-boot-rest-api
+    name: library
 
   # Database properties
   datasource:
@@ -29,6 +29,18 @@ spring:
     change-log: classpath:db/changelog/changelog.yml
     default-schema: public
 
+  #Kafka properties
+  kafka:
+    producer:
+      client-id: ${spring.application.name}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    bootstrap-servers: localhost:9092
+
 # Server configuration
 server:
   port: 8080
+
+kafka:
+  topic:
+    bookReceived: bookReceived
