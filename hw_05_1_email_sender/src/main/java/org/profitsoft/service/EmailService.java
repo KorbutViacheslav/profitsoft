@@ -1,34 +1,45 @@
 package org.profitsoft.service;
 
-import lombok.AllArgsConstructor;
-import org.profitsoft.model.EmailMessage;
-import org.profitsoft.repository.EmailMessageRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.profitsoft.model.EmailMessage;
+import org.profitsoft.model.StatusMessage;
+import org.profitsoft.repository.EmailRepository;
+
+import java.time.Instant;
+
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class EmailService {
 
-    private final JavaMailSender javaMailSender;
-    private final EmailMessageRepository emailMessageRepository;
+    private final JavaMailSender mailSender;
+    private final EmailRepository emailRepository;
 
     public void sendEmail(EmailMessage emailMessage) {
+        emailMessage.setAttemptCount(emailMessage.getAttemptCount() + 1);
+        emailMessage.setLastAttemptTime(Instant.now());
+
         try {
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(emailMessage.getRecipient());
-            message.setSubject(emailMessage.getContent());
+            message.setTo(emailMessage.getRecipients());
+            message.setSubject(emailMessage.getSubject());
             message.setText(emailMessage.getContent());
-
-            javaMailSender.send(message);
-
-            emailMessage.setStatus("SENT");
-            emailMessageRepository.save(emailMessage);
+            mailSender.send(message);
+            System.out.println("StatusMessage.SENT");
+            emailMessage.setErrorMessage(null);
+            emailMessage.setStatus(StatusMessage.SENT);
         } catch (Exception e) {
-            emailMessage.setStatus("ERROR");
-            emailMessage.setErrorMessage(e.getMessage());
-            emailMessageRepository.save(emailMessage);
+            emailMessage.setStatus(StatusMessage.ERROR);
+            emailMessage.setErrorMessage(e.getClass().getName() + ": " + e.getMessage());
+            System.out.println(e.getClass().getName() + ": " + e.getMessage());
+        } finally {
+            System.out.println(emailMessage);
+            emailRepository.save(emailMessage);
         }
+
+
     }
 }

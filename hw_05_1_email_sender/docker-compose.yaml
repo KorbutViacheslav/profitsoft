@@ -1,22 +1,6 @@
-version: '4.3'
-services:
-  # Service for sending eMail
-  email-service:
-    build: .
-    ports:
-      - "8082:8082"
-    environment:
-      - SPRING_DATASOURCE_URL=http://elasticsearch:9200
-      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - SPRING_MAIL_HOST=${MAIL_HOST}
-      - SPRING_MAIL_PORT=${MAIL_PORT}
-      - SPRING_MAIL_USERNAME=${MAIL_USERNAME}
-      - SPRING_MAIL_PASSWORD=${MAIL_PASSWORD}
-    depends_on:
-      - elasticsearch
-      - kafka
+version: "3.9"
 
-  # Elasticsearch service for data storage
+services:
   elasticsearch:
     image: elasticsearch:8.6.1
     container_name: elasticsearch
@@ -28,29 +12,46 @@ services:
       - ./data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
+    networks:
+      - library
 
-  # Kibana service for visualization of Elasticsearch data
   kibana:
     image: kibana:8.6.1
     container_name: kibana
     ports:
       - "5601:5601"
+    networks:
+      - library
     depends_on:
       - elasticsearch
 
-  # Kafka service for asynchronous message transfer
-  kafka:
-    image: confluentinc/cp-kafka:6.2.1
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    container_name: zookeeper
     ports:
-      - "9092:9092"
+      - '2181:2181'
     environment:
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - library
+
+  kafka:
+    image: 'bitnami/kafka:latest'
+    container_name: kafka
+    ports:
+      - '9092:9092'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    networks:
+      - library
     depends_on:
       - zookeeper
 
-  # Zookeeper service for Kafka
-  zookeeper:
-    image: confluentinc/cp-zookeeper:6.2.1
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
+networks:
+  library:
+    external: true
+    driver: bridge
