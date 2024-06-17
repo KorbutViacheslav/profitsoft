@@ -10,6 +10,7 @@
 
 This is a microservice built with Java and Spring Boot for sending email messages.
 It uses Elasticsearch for data storage and Kafka for asynchronous message processing.
+
 ---
 
 ## Features
@@ -24,7 +25,7 @@ It uses Elasticsearch for data storage and Kafka for asynchronous message proces
 
 ### Usage
 
-1. **Start project from [hw_02_book_management_application](hw_02_book_management_application/README.md)**
+1. **Start project from [hw_02_book_management_application](../hw_02_book_management_application/README.md)**
 2. Create a `.env` file in the project root and add the following variables:
    ```env
    MAIL_HOST=smtp.gmail.com
@@ -39,8 +40,10 @@ It uses Elasticsearch for data storage and Kafka for asynchronous message proces
       docker-compose build
       docker-compose up
       ````
-4. Run [app](hw_05_1_email_sender/src/main/java/org/profitsoft/EmailSender.java).
+4. Run [app](../hw_05_1_email_sender/src/main/java/org/profitsoft/EmailSender.java).
+
 ---
+
 ## Technologies Used
 
 - Java 17
@@ -49,7 +52,9 @@ It uses Elasticsearch for data storage and Kafka for asynchronous message proces
 - Kafka
 - JavaMailSender
 - Docker
+
 ---
+
 ## Summary
 This Java and Spring Boot-built microservice provides a robust and scalable solution for sending emails.
 It utilizes Kafka for asynchronous processing, Elasticsearch for message storage and indexing, SMTP for reliable delivery, 
