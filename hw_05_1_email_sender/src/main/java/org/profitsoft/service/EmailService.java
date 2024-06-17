@@ -36,7 +36,6 @@ public class EmailService {
             emailMessage.setErrorMessage(e.getClass().getName() + ": " + e.getMessage());
             System.out.println(e.getClass().getName() + ": " + e.getMessage());
         } finally {
-            System.out.println(emailMessage);
             emailRepository.save(emailMessage);
         }
 
