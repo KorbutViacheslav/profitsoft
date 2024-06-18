@@ -1,6 +1,7 @@
 package org.profitsoft.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
@@ -29,6 +30,7 @@ public class TestElasticsearchConfiguration extends ElasticsearchConfiguration {
         return container;
     }
 
+    @NotNull
     @Bean
     @Override
     public ClientConfiguration clientConfiguration() {

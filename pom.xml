@@ -12,6 +12,7 @@
         <module>hw_01_statistic_json_parser</module>
         <module>hw_02_book_management_application</module>
         <module>hw_03_modern_frontend_book_management</module>
+        <module>hw_04_nodejs_book_review</module>
         <module>hw_05_1_email_sender</module>
     </modules>
 
