@@ -51,6 +51,22 @@ services:
     depends_on:
       - zookeeper
 
+#  email-sender:
+#    container_name: email-sender
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    ports:
+#      - "8090:8090"
+#    depends_on:
+#      - elasticsearch
+#    volumes:
+#      - ./.env:/app/.env
+#    networks:
+#      - library
+#    environment:
+#      - SERVER_PORT= 8090
+
 networks:
   library:
     external: true

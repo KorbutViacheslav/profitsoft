@@ -11,3 +11,5 @@ Tasks in the course of study:
 * Modern Frontend Book Management: [Click](hw_03_modern_frontend_book_management/README.md)
 ---
 * Book Review REST API: [Click](hw_04_nodejs_book_review/README.md)
+---
+* Email Sender: [Click](hw_05_1_email_sender/README.md)
