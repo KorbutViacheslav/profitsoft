@@ -12,16 +12,25 @@ import org.profitsoft.repository.EmailRepository;
 import java.time.Instant;
 import java.util.List;
 
+/**
+ * Service for retrying failed email sending attempts.
+ * This service periodically checks for emails with an ERROR status and retries sending them.
+ */
 @Service
 @RequiredArgsConstructor
 @EnableScheduling
 @Slf4j
 public class RetryEmailService {
+
     private final EmailRepository emailRepository;
     private final EmailService emailService;
 
     private static final int MAX_ATTEMPTS = 5;
 
+    /**
+     * Periodically retries sending emails that previously failed.
+     * This method is scheduled to run at a fixed rate defined in milliseconds.
+     */
     @Scheduled(fixedRate = 300000)
     public void retryFailedEmails() {
         log.info("Start checking unsent emails.");
@@ -40,5 +49,4 @@ public class RetryEmailService {
         }
         log.info("Finish checking unsent emails.");
     }
-
 }
