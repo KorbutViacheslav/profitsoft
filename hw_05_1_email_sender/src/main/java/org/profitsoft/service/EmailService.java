@@ -34,12 +34,8 @@ public class EmailService {
     public void sendEmail(EmailMessage emailMessage) {
         emailMessage.setAttemptCount(emailMessage.getAttemptCount() + 1);
         emailMessage.setLastAttemptTime(Instant.now());
-
         try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(emailMessage.getRecipients());
-            message.setSubject(emailMessage.getSubject());
-            message.setText(emailMessage.getContent());
+            var message = createSMM(emailMessage);
             mailSender.send(message);
             logger.info("Email sent successfully to {}", (Object) emailMessage.getRecipients());
             emailMessage.setErrorMessage(null);
@@ -52,5 +48,14 @@ public class EmailService {
             emailRepository.save(emailMessage);
             logger.info("Email message saved with status {}", emailMessage.getStatus());
         }
+
+    }
+
+    private SimpleMailMessage createSMM(EmailMessage emailMessage) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(emailMessage.getRecipients());
+        message.setSubject(emailMessage.getSubject());
+        message.setText(emailMessage.getContent());
+        return message;
     }
 }
