@@ -1,0 +1,59 @@
+server:
+  port: 1000
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  application:
+    name: gateway
+  config:
+    import: optional:consul:/
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        health-check-path: /health
+    gateway:
+      routes:
+        - id: hw_02_book_management_application-route
+          uri: lb://hw_02_book_management_application
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<remaining>.*), /api/${remaining}
+        - id: hw_04_nodejs_book_review-route
+          uri: lb://hw_04_nodejs_book_review
+          predicates:
+            - Path=/api/review**
+          filters:
+            - RewritePath=/api/review/(?<remaining>.*), /api/review/${remaining}
+        - id: hw_03_modern_frontend_book_management-route
+          uri: lb://hw_03_modern_frontend_book_management
+          predicates:
+            - Path=/api/search/**
+          filters:
+            - RewritePath=/api/search/(?<remaining>.*), /api/${remaining}
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      services:
+        wait-duration-in-open-state: 10s
+        failure-rate-threshold: 60
+        slow-call-duration-threshold:
+          - 2s
+        minimum-number-of-calls: 3
+        permitted-number-of-calls-in-half-open-state: 1
+
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: "*"
