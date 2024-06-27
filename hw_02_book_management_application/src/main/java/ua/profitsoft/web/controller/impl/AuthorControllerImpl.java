@@ -24,7 +24,7 @@ import java.util.List;
  */
 @RestController
 @AllArgsConstructor
-@RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/library", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin("*")
 public class AuthorControllerImpl implements AuthorController {
 

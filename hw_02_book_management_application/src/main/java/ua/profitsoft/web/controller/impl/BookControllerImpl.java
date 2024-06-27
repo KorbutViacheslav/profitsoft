@@ -38,7 +38,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/library", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin("*")
 public class BookControllerImpl implements BookController {
 

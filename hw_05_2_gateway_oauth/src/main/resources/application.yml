@@ -17,24 +17,28 @@ spring:
         health-check-path: /health
     gateway:
       routes:
-        - id: hw_02_book_management_application-route
-          uri: lb://hw_02_book_management_application
+        - id: library-route
+          uri: lb://library
+          predicates:
+            - Path=/api/library/**
+          filters:
+            - RewritePath=/api/library/(?<remaining>.*), /api/library/${remaining}
+
+        - id: hw_05_1_email_sender-route
+          uri: lb://hw_05_1_email_sender
           predicates:
             - Path=/api/**
           filters:
             - RewritePath=/api/(?<remaining>.*), /api/${remaining}
-        - id: hw_04_nodejs_book_review-route
-          uri: lb://hw_04_nodejs_book_review
-          predicates:
-            - Path=/api/review**
-          filters:
-            - RewritePath=/api/review/(?<remaining>.*), /api/review/${remaining}
-        - id: hw_03_modern_frontend_book_management-route
-          uri: lb://hw_03_modern_frontend_book_management
-          predicates:
-            - Path=/api/search/**
-          filters:
-            - RewritePath=/api/search/(?<remaining>.*), /api/${remaining}
+
+#GitHub Login
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Ov23liK1irLQ6FKCPEss
+            client-secret: 28d97e79cf0e1d048ac277e4f09d7ba8be67f960
 
 resilience4j:
   circuitbreaker:
@@ -57,3 +61,4 @@ management:
       base-path: /
       exposure:
         include: "*"
+
