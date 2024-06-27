@@ -41,10 +41,8 @@ The application ensures secure access and user authentication, leveraging Spring
 2. **Start project from [hw_05_1_email_sender](../hw_05_1_email_sender/README.md)**
 3. Open project in the terminal within the folder containing docker-compose.yaml file and execute the following
    commands:
-4. 
       ````
-      docker-compose build
-      docker-compose up
+      docker-compose up --build
       ````
 4. Run [app](../hw_05_2_gateway_oauth/src/main/java/org/profitsoft/hw_05_2_gateway_oauth/Hw052GatewayOauthApplication.java)
 
