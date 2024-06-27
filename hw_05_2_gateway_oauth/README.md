@@ -8,7 +8,7 @@
 
 ## Application Description
 
-This application is a microservices-based system enhanced with a security layer.
+This application is a microservices-based system enhanced with a security layer. 
 It features a centralized gateway for accessing microservices, GitHub authentication, and authorization.
 The application ensures secure access and user authentication, leveraging Spring Cloud Gateway.
 
@@ -17,8 +17,8 @@ The application ensures secure access and user authentication, leveraging Spring
 ## Features
 
 - #### Gateway Configuration:
-    * Centralized access to all microservices through a single base URL and port using Spring Cloud Gateway.
-    * Optional HTTPS configuration for secure communication.
+  * Centralized access to all microservices through a single base URL and port using Spring Cloud Gateway.
+  * Optional HTTPS configuration for secure communication.
 
 - #### Authentication and Authorization:
     * GitHub OAuth2 authentication to restrict access to authenticated users only.
@@ -41,8 +41,10 @@ The application ensures secure access and user authentication, leveraging Spring
 2. **Start project from [hw_05_1_email_sender](../hw_05_1_email_sender/README.md)**
 3. Open project in the terminal within the folder containing docker-compose.yaml file and execute the following
    commands:
+4. 
       ````
-      docker-compose up --build
+      docker-compose build
+      docker-compose up
       ````
 4. Run [app](../hw_05_2_gateway_oauth/src/main/java/org/profitsoft/hw_05_2_gateway_oauth/Hw052GatewayOauthApplication.java)
 
@@ -51,6 +53,6 @@ The application ensures secure access and user authentication, leveraging Spring
 ## Summary
 This application demonstrates a secure, deployed microservices architecture with centralized gateway access,
 GitHub OAuth2 authentication, and CI/CD integration.
-It ensures secure user access and profile management through a streamlined and robust security layer.
+It ensures secure user access and profile management through a streamlined and robust security layer. 
 The project leverages Spring Cloud Gateway for centralized routing, Spring Authorization Server,
 and integrates a responsive frontend that adapts based on the user's authentication status.
