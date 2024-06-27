@@ -13,3 +13,5 @@ Tasks in the course of study:
 * Book Review REST API: [Click](hw_04_nodejs_book_review/README.md)
 ---
 * Email Sender: [Click](hw_05_1_email_sender/README.md)
+---
+* Gateway OAuth: [Click](hw_05_2_gateway_oauth/README.md)
