@@ -3,6 +3,17 @@ spring:
   application:
     name: library
 
+  config:
+    import: optional:consul:/
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: library
+        health-check-path:  /health
+
+
   # Database properties
   datasource:
     #driver-class-name: org.postgresql.Driver
@@ -36,6 +47,17 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     bootstrap-servers: localhost:9092
+
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      base-path: /
+
+
 
 # Server configuration
 server:
