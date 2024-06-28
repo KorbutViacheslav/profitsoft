@@ -2,13 +2,13 @@
 
 * [Task issued](https://docs.google.com/document/d/1ImI1umqfAcfahbdV2MUPl37LHMvElQbmEpUORGzAdr8/edit#heading=h.arwffw3rrrrx) (Only for users
   who have access to the internship)
-* A short video about how the application works [YouTube](https://www.youtube.com/watch?v=Mw57EFI9V7s)
+* A short video about how the application works [YouTube]()
 
 ---
 
 ## Application Description
 
-This application is a microservices-based system enhanced with a security layer. 
+This application is a microservices-based system enhanced with a security layer.
 It features a centralized gateway for accessing microservices, GitHub authentication, and authorization.
 The application ensures secure access and user authentication, leveraging Spring Cloud Gateway.
 
@@ -17,8 +17,8 @@ The application ensures secure access and user authentication, leveraging Spring
 ## Features
 
 - #### Gateway Configuration:
-  * Centralized access to all microservices through a single base URL and port using Spring Cloud Gateway.
-  * Optional HTTPS configuration for secure communication.
+    * Centralized access to all microservices through a single base URL and port using Spring Cloud Gateway.
+    * Optional HTTPS configuration for secure communication.
 
 - #### Authentication and Authorization:
     * GitHub OAuth2 authentication to restrict access to authenticated users only.
@@ -51,6 +51,6 @@ The application ensures secure access and user authentication, leveraging Spring
 ## Summary
 This application demonstrates a secure, deployed microservices architecture with centralized gateway access,
 GitHub OAuth2 authentication, and CI/CD integration.
-It ensures secure user access and profile management through a streamlined and robust security layer. 
+It ensures secure user access and profile management through a streamlined and robust security layer.
 The project leverages Spring Cloud Gateway for centralized routing, Spring Authorization Server,
 and integrates a responsive frontend that adapts based on the user's authentication status.
