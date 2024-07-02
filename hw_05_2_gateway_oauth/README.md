@@ -2,7 +2,7 @@
 
 * [Task issued](https://docs.google.com/document/d/1ImI1umqfAcfahbdV2MUPl37LHMvElQbmEpUORGzAdr8/edit#heading=h.arwffw3rrrrx) (Only for users
   who have access to the internship)
-* A short video about how the application works [YouTube]()
+* A short video about how the application works [YouTube](https://www.youtube.com/watch?v=Mw57EFI9V7s)
 
 ---
 
