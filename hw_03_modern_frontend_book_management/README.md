@@ -1,6 +1,6 @@
 # Modern Frontend Book Management.(Task not completed)
 * [Task issued](https://docs.google.com/document/d/15nVSLN8YB6SbO8LZjOhNYabai5F18-GVs1jlw321yM0/edit?hl=ru) (Only for users who have access to the internship)
-* A short video about how the application works [YouTube](https://www.youtube.com/watch?v=Cn_YCluoADg)
+* A short video about how the application works [YouTube](https://www.youtube.com/watch?v=UJZB8utxqVI&t=48s)
 ---
 ### Application Description
 Book Management is a modern frontend project built using a basic project template called "hw_02_book_management_application".
