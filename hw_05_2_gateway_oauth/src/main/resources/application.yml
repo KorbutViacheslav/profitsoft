@@ -5,6 +5,8 @@ server:
     include-binding-errors: always
 
 spring:
+  main:
+    web-application-type: reactive
   application:
     name: gateway
   config:
@@ -31,14 +33,21 @@ spring:
           filters:
             - RewritePath=/api/(?<remaining>.*), /api/${remaining}
 
+        - id: react-frontend
+          uri: http://localhost:3050
+          predicates:
+            - Path=/**
+          filters:
+            - RewritePath=/(?<segment>.*), /$\{segment}
+
 #GitHub Login
   security:
     oauth2:
       client:
         registration:
           github:
-            client-id: Ov23liK1irLQ6FKCPEss
-            client-secret: 28d97e79cf0e1d048ac277e4f09d7ba8be67f960
+            client-id: Ov23liX0YscBvVzbDmlw
+            client-secret: c1985fa42be6ee54ea208d894d47a866825ecd51
 
 resilience4j:
   circuitbreaker:
@@ -61,6 +70,3 @@ management:
       base-path: /
       exposure:
         include: "*"
-
-frontend:
-  url: http://localhost:3050
